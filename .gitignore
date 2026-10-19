@@ -4,3 +4,11 @@ __pycache__/
 .env
 .env.*
 work/
+
+# Skills stay local unless explicitly selected for publication.
+/skills/*
+!/skills/develop-spec/
+!/skills/cto-code-review/
+!/skills/simplify-and-cleanup/
+!/skills/write-pr/
+!/skills/dev-brain-rot/
