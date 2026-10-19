@@ -116,6 +116,25 @@ implementation.
   helpers, redundant aliases, and scaffolding. Mention unrelated dead code
   without expanding the cleanup to remove it.
 
+## Review delivery boundaries
+
+For a feature, branch, or PR cleanup, compare the resulting diff with any agreed
+delivery plan. Recommend splitting branches or PRs when the diff contains
+independently useful changes, a prerequisite refactor, or distinct rollout risks
+that would be easier to review separately. Keep one coherent change together;
+file count or separate backend/frontend folders alone do not justify a split.
+
+When recommending a split, identify what belongs in each part, its parent or
+dependency, and whether the parts can land independently or as an ordered stack.
+Keep schema, API, and consumer compatibility intact at each landing point.
+Suggest coherent commit boundaries and Conventional Commit summaries unless
+the repository requires another format: `<type>: <imperative summary>`, with an
+optional meaningful scope. Mention a split only when it improves this delivery.
+
+A recommendation leaves Git history unchanged. Carry out branch creation,
+history changes, or commits only when the user has requested that delivery;
+preserve existing user work and recheck affected boundaries if a split is made.
+
 ## Verify and report
 
 Review the resulting diff for readability and preserved contracts. Use the
