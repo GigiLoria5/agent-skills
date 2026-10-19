@@ -4,6 +4,7 @@ __pycache__/
 .env
 .env.*
 work/
+.idea
 
 # Skills stay local unless explicitly selected for publication.
 /skills/*

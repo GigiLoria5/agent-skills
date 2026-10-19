@@ -14,8 +14,9 @@ work. Both are valid choices. The delegation should be yours.
 | You bring | A draft, a problem, or a task to work through | A goal and a place to build it |
 | Decisions | You own consequential choices; the agent researches and recommends | You explicitly delegate routine choices and coordination |
 | Missing context | The agent asks for intent it cannot retrieve | The agent makes reasonable choices within scope; asks when the goal or a consequential boundary is missing |
-| Pace | Discuss, understand, decide, then continue | Spec, plan, build, review, cleanup, and PR preparation flow together |
+| Pace | Discuss, understand, decide, then continue | Spec, plan, build, review, cleanup, docs, and PR preparation flow together |
 | Review | Choose your own review, CTO review, cleanup, or a combination | The agent coordinates review and resolves supported findings within the delegated scope |
+| Closure | Choose which specs and docs to update; select any proposed instruction improvements | Reconcile the task's known docs; propose instruction improvements for your selection |
 | Responsibility | Yours | Still yours |
 
 Both modes work for developers and nontechnical teammates. Driver mode does not
@@ -24,7 +25,8 @@ every implementation detail.
 
 ## Driver mode: stay involved
 
-Start with a rough draft in Notion, an issue, a document, or chat.
+Start with a rough draft, a few details, a pasted conversation, or an accessible
+Slack thread. A task does not need an existing Notion card.
 
 1. **Discuss with `develop-spec`.** Clarify the problem through a conversation.
    The agent brings facts, options, and recommendations. When intent or a material
@@ -44,12 +46,17 @@ Start with a rough draft in Notion, an issue, a document, or chat.
    run `simplify-and-cleanup`, or combine them. CTO review lets you accept,
    reject, or defer findings, then choose fixes here, a subagent, a handoff
    prompt, or fixing them yourself.
-6. **Prepare delivery.** Revisit branch boundaries if implementation changed the
+6. **Close the task with `close-task`.** Choose the specs and relevant docs to
+   update, with a shortlist suggested from the task when useful. Reconcile them
+   with the actual result and consider concrete lessons. Changes to shared
+   skills or steering instructions remain your choice.
+7. **Prepare delivery.** Revisit branch boundaries if implementation changed the
    plan, finish coherent Conventional Commits, and use `write-pr` for concise
    PR wording. Complete the commit/push/PR actions you actually requested.
 
-Relevant documentation evolves with implementation. Use review feedback and
-real corrections to improve the skills and checks afterward.
+Use only the piece you need. `develop-spec` can discuss one decision, turn a Slack
+thread into a product task, rewrite a technical spec, or plan an already agreed
+change. It does not restart the full workflow for each of those requests.
 
 ```text
 Use $develop-spec to talk through this draft: <card or idea>.
@@ -60,6 +67,14 @@ A short brief is not permission to invent your product decisions. You can
 explicitly delegate an individual choice with “you decide” or “go automatically”
 without handing over the entire workflow.
 
+```text
+Use $develop-spec to draft a product task from this Slack thread: <link>.
+Only write the draft; flag any important unresolved decisions.
+
+Use $close-task to wrap up this work. Help me choose which specs and docs
+to update, then propose useful improvements from the session.
+```
+
 ## Dev Brain Rot: deliberately hand over the wheel
 
 For a nontechnical teammate, a familiar task, or a day when you want to delegate,
@@ -67,9 +82,10 @@ invoke `dev-brain-rot` explicitly. It coordinates the companion skills and the
 repository's implementation conventions from spec through PR preparation.
 
 It records the plan and meaningful decisions, implements and verifies the work,
-coordinates review and fixes, simplifies the result, and prepares the requested
-delivery. You get an understandable result, useful evidence, and anything that
-still needs your decision.
+coordinates review and fixes, simplifies the result, reconciles the task's known
+documentation, and prepares the requested delivery. It proposes lessons without
+silently changing shared skills or steering instructions. You get an understandable
+result, useful evidence, and anything that still needs your decision.
 
 ```text
 Use $dev-brain-rot to implement <goal or card> in <repository>.
@@ -80,11 +96,25 @@ This mode is explicit-only. It does not activate because you gave a short prompt
 or because you are not a developer. It can still need a real goal, access, or a
 decision outside the delegated scope. You can take the wheel back at any time.
 
+## Quality over quantity
+
+Choose the simplest complete solution: reuse existing capabilities, keep types
+and contracts precise, and prove behavior with meaningful tests. Abstractions,
+defensive machinery, and comments should earn their place. Repository-specific
+guidance determines the stack and checks. These standards apply while building;
+cleanup is a final pass, not the first time quality matters.
+
+The automatic workflow's [implementation quality reference](skills/dev-brain-rot/references/implementation-quality.md)
+makes that baseline explicit without requiring a personal or company-specific
+development skill.
+
 ## The workflow
+
+This is the full route; individual skills can handle a single part.
 
 ```mermaid
 flowchart TD
-    A["Draft: Notion, issue, document, or chat"] --> B{"How do you want to work?"}
+    A["Draft, details, or conversation: card, Slack, or chat"] --> B{"How do you want to work?"}
     B -->|Driver mode| C["develop-spec: discuss and clarify"]
     C --> D["Agree the spec and its audience"]
     D --> E{"Save or update the card?"}
@@ -102,14 +132,15 @@ flowchart TD
     M --> O
     N --> O
     O -->|Iterate| J
-    O -->|Ready| P["Finalize branch split and Conventional Commits"]
-    K -->|Ready| P
+    O -->|Ready| V["close-task: choose docs, reconcile, propose lessons"]
+    K -->|Ready| V
+    V --> P["Finalize branch split and Conventional Commits"]
     P --> Q["write-pr"]
     Q --> R["Requested PR delivery"]
     B -->|Explicit delegation| S["dev-brain-rot"]
-    S --> T["Spec, plan, implement, review, cleanup, and PR preparation"]
+    S --> T["Spec, plan, build, review, cleanup, docs, and PR preparation"]
     T --> R
-    R --> U["Documentation and useful lessons"]
+    R --> U["Hand back result and remaining proposals"]
 ```
 
 ## The skills
@@ -121,6 +152,7 @@ flowchart TD
 | [simplify-and-cleanup](skills/simplify-and-cleanup/SKILL.md) | You want less complexity and boilerplate, plus a useful check of delivery boundaries. |
 | [write-pr](skills/write-pr/SKILL.md) | You want the outcome and essential reviewer context, with implementation bookkeeping left in the diff. |
 | [dev-brain-rot](skills/dev-brain-rot/SKILL.md) | You explicitly want the whole workflow coordinated for you. |
+| [close-task](skills/close-task/SKILL.md) | You want to reconcile specs and docs, then choose useful improvements from what happened. |
 
 ## Install
 
@@ -147,7 +179,7 @@ determine which actions can actually run.
 This is my authored collection. [PROVENANCE.md](PROVENANCE.md) records origins
 and inspiration; third-party downloads stay with their original sources.
 
-Skill folders are ignored by default. The five folders above are explicitly
+Skill folders are ignored by default. The six folders above are explicitly
 allowlisted in [.gitignore](.gitignore); other skills can live in the same local
 checkout without joining the publication set. Adding a skill to the public
 collection is a deliberate whitelist change.
