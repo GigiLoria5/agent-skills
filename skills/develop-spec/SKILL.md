@@ -12,6 +12,20 @@ Help the user think through the work as a colleague. Build on what they already
 know and contribute useful reasoning, examples, and alternatives along the way.
 The conversation should make the problem clearer and the tradeoffs easier to judge.
 
+## Keep the user driving
+
+By default, the user owns consequential product and delivery decisions. Research
+facts and propose an approach, but ask for missing intent, constraints, or tradeoffs
+that materially change what will be built. Explain what the choice changes so the
+user can decide. Do not quietly turn a recommendation into an agreed requirement.
+Continue useful investigation while waiting; a short brief is not delegation.
+
+Accept ordinary explicit delegation such as "you decide" or "go automatically"
+for the choices it covers. State the delegated scope briefly and make those
+decisions without repeatedly asking for them. Still establish a meaningful goal
+if none is available. Clear requirements need no artificial questioning or tests
+of the user's technical knowledge.
+
 ## Converse
 
 Read a supplied card or spec and use the current conversation before asking for
@@ -41,13 +55,17 @@ When the behavior and consequential decisions are clear enough to document,
 briefly reflect the agreed outcome and any remaining uncertainty. End by offering
 to draft or update the card in Notion or the user's chosen destination.
 
-Ask which audience and level of detail they want, unless already specified:
-personal/technical reference, product/business, or both. For example:
+Determine the audience and level of detail: personal/technical reference,
+product/business, or both. Use an explicit preference first, then an unambiguous
+destination purpose such as a product backlog or a named engineering reference.
+Mention an inferred audience briefly so the user can correct it. When unclear,
+ask. For example:
 "Ready to update the card? Should this be a technical reference, a product brief,
 or two linked versions?" Do not require another approval if the user already
 asked you to save an agreed draft to a known destination for a known audience.
 
-Audience is a per-destination choice, separate from language. Confirm an unclear
+Audience is a per-destination choice, separate from language. Existing code-heavy
+content alone does not establish the intended audience. Confirm an unclear
 destination before writing. If there are two versions, establish which page gets
 each; keep their requirements consistent while adapting what each reader needs.
 Ask only for missing choices, and retain the answers through later updates.
@@ -56,19 +74,6 @@ Read [audience guidance](references/audience.md) before drafting or updating.
 Show the proposed text before an external write when the user has not already
 authorized that write. Keep the question about saving concrete: identify the
 target and include or point to the draft they would be approving.
-
-## Plan when the discussion reaches implementation
-
-When an implementation plan is requested or part of the agreed spec, inspect
-relevant code and repository guidance first. Read
-[delivery planning](references/delivery-planning.md). Append the agreed plan to
-the technical reference, preserving decisions and scope above it. For a product
-card, keep delivery information at the level of visible outcomes and link to the
-technical plan if that linked version exists and the link is wanted.
-
-Spec development does not itself start implementation, create branches or tasks,
-commit code, or open a PR. Continue into those actions when the user's request
-also authorizes them; otherwise leave the draft or saved spec ready to use.
 
 ## Save and maintain
 
@@ -84,3 +89,24 @@ reference or PR, rather than accumulating them in the product card.
 
 Verify the saved result and return its link. If access is missing, leave a usable
 draft and state that it remains unsaved.
+
+## Offer implementation planning next
+
+Once the user is satisfied with the spec, after saving it or keeping the agreed
+draft in chat, ask whether they want to turn it into an implementation plan.
+Saving a spec alone does not select this next phase. If planning was already
+requested, proceed without asking again.
+
+For the plan, inspect relevant code and repository guidance and read
+[delivery planning](references/delivery-planning.md). Propose verifiable slices,
+branch or PR boundaries, dependencies, and Conventional Commit preferences.
+Keep consequential choices with the user unless they delegated them. Append
+the agreed plan to the technical reference, preserving the spec above it.
+
+For a product card, keep delivery information at the level of visible outcomes
+and link to the technical plan when wanted. If there is no technical destination,
+prepare the plan in chat and establish where to save it instead of putting
+engineering details into the product card.
+
+An agreed plan does not itself start implementation. Continue into coding,
+branch creation, or delivery when the user's request also covers those actions.

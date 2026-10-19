@@ -3,6 +3,13 @@
 Fit the plan to the repository and the agreed change. Reuse an existing plan
 when updating a spec rather than appending a second competing plan.
 
+In the default driver mode, propose material choices with their consequences and
+let the user decide. An explicit request to handle the work automatically can
+delegate those choices within its stated scope. Record the chosen approach and
+its reason so the user can understand the plan afterward.
+Preserve decision ownership in an implementation handoff: record what the user
+has delegated and which unresolved choices still belong to them.
+
 Describe independently verifiable slices, their dependencies, and the check or
 demonstration that establishes each slice is done. Keep the plan concrete enough
 to guide implementation without recreating the patch in prose. Include a useful
