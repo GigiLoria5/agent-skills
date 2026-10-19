@@ -7,6 +7,33 @@ software. Usually I want to think through the decisions myself, with an agent
 that helps me see the options. Sometimes I deliberately hand over more of the
 work. Both are valid choices. The delegation should be yours.
 
+## Contents
+
+- [Install](#install)
+- [Choose how you work](#choose-how-you-work)
+- [Driver mode: stay involved](#driver-mode-stay-involved)
+- [Dev Brain Rot: deliberately hand over the wheel](#dev-brain-rot-deliberately-hand-over-the-wheel)
+- [The workflow](#the-workflow)
+- [The skills](#the-skills)
+- [Author & inspiration](#author--inspiration)
+
+## Install
+
+Install all six skills for **Claude Code and Codex**, available across projects:
+
+```sh
+npx skills add GigiLoria5/agent-skills -g -a claude-code -a codex --skill '*'
+```
+
+Replace `'*'` with a skill name such as `write-pr` to install just that skill.
+Omit `-g` for a project-local installation. Install the full collection when using
+`dev-brain-rot`, so its companion skills are available.
+
+Use `$develop-spec` in Codex or `/develop-spec` in Claude Code. The examples below
+use Codex's syntax. See
+the [Skills CLI reference](https://github.com/vercel-labs/skills/blob/main/docs/commands.md)
+for other agents and options.
+
 ## Choose how you work
 
 |                 | Driver mode                                                                         | `dev-brain-rot`                                                                                            |
@@ -23,6 +50,13 @@ Both modes work for developers and nontechnical teammates. Driver mode does not
 require a technical quiz, and delegated mode does not require pretending to know
 every implementation detail.
 
+In either mode, aim for the simplest complete solution. Reuse what exists, keep
+types and contracts precise, and verify behavior with meaningful tests and checks.
+Repository guidance determines the stack and conventions. Quality is part of
+each implementation slice; cleanup helps remove what is still unnecessary.
+The [implementation quality reference](skills/dev-brain-rot/references/implementation-quality.md)
+sets out the baseline used by the delegated workflow.
+
 ## Driver mode: stay involved
 
 Start with a rough draft, a few details, a pasted conversation, or an accessible
@@ -32,7 +66,7 @@ Slack thread. A task does not need an existing Notion card.
    The agent brings facts, options, and recommendations. When intent or a material
    tradeoff is missing, it asks you instead of silently deciding.
 2. **Agree and save the spec.** The agent offers to update your chosen card and
-   establishes its audience: a personal/technical working task, a product brief,
+   establishes its audience: a personal/technical reference, a product brief,
    or two linked versions. Clear destination context can establish the audience;
    ambiguity brings a question.
 3. **Choose whether to plan.** Once the spec is settled, the agent asks whether
@@ -85,8 +119,7 @@ It records the plan and meaningful decisions, implements and verifies the work,
 coordinates review and fixes, simplifies the result, prepares the requested
 delivery, then reconciles the task's known documentation. It proposes lessons
 without silently changing shared skills or steering instructions. You get an
-understandable
-result, useful evidence, and anything that still needs your decision.
+understandable result, useful evidence, and anything that still needs your decision.
 
 ```text
 Use $dev-brain-rot to implement <goal or card> in <repository>.
@@ -96,19 +129,6 @@ Choose routine implementation details and open a PR when ready.
 This mode is explicit-only. It does not activate because you gave a short prompt
 or because you are not a developer. It can still need a real goal, access, or a
 decision outside the delegated scope. You can take the wheel back at any time.
-
-## Quality over quantity
-
-Choose the simplest complete solution: reuse existing capabilities, keep types
-and contracts precise, and prove behavior with meaningful tests. Abstractions,
-defensive machinery, and comments should earn their place. Repository-specific
-guidance determines the stack and checks. These standards apply while building;
-cleanup is a final pass, not the first time quality matters.
-
-The automatic
-workflow's [implementation quality reference](skills/dev-brain-rot/references/implementation-quality.md)
-makes that baseline explicit without requiring a personal or company-specific
-development skill.
 
 ## The workflow
 
@@ -155,25 +175,6 @@ flowchart TD
 | [write-pr](skills/write-pr/SKILL.md)                         | You want the outcome and essential reviewer context, with implementation bookkeeping left in the diff. |
 | [dev-brain-rot](skills/dev-brain-rot/SKILL.md)               | You explicitly want the whole workflow coordinated for you.                                            |
 | [close-task](skills/close-task/SKILL.md)                     | You want to reconcile specs and docs, then choose useful improvements from what happened.              |
-
-## Install
-
-Install the collection with the [Skills CLI](https://skills.sh/docs):
-
-```sh
-npx skills add GigiLoria5/agent-skills
-```
-
-Install the collection to give `dev-brain-rot` its companion skills. For an
-individual tool:
-
-```sh
-npx skills add GigiLoria5/agent-skills --skill write-pr
-```
-
-Each skill is a portable `SKILL.md` directory. Codex metadata lives in
-`agents/openai.yaml`. Available tools, repository access, and host permissions
-determine which actions can actually run.
 
 ## Author & Inspiration
 
