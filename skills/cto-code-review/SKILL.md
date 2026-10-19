@@ -88,6 +88,14 @@ When there are findings, end by asking which IDs the user **accepts**, **rejects
 
 Then wait: Required is the reviewer's assessment, not user acceptance. Selection and the resolution path are separate choices. Ask only for the missing choice when the reply supplies one; reuse a path the user has already explicitly chosen for this review. Do not generate a fix prompt, launch a fixing agent, or modify code before the relevant choices are clear.
 
+The user may explicitly delegate finding selection and execution within a bounded
+automatic workflow, including invoking `dev-brain-rot`. Apply that delegation only
+to its covered decisions: record the selected, skipped, and deferred IDs and the
+reason, and perform authorized fixes. Return consequential product or scope
+changes to the user when outside that delegation. An ordinary review request,
+a terse brief, or the user's lack of technical knowledge does not delegate these
+choices.
+
 Resolve selection ambiguity without guessing. Unselected findings remain undecided. Record rejected/deferred IDs and any reason supplied without requiring the user to justify every choice. If the user requests more investigation, update the evidence while preserving IDs.
 
 ## Occasional angry-CTO humor

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Dev Brain Rot"
+  short_description: "Explicitly delegate the development workflow"
+  default_prompt: "Use $dev-brain-rot to take this task from idea through implementation, review, and PR preparation, choosing routine technical details for me."
+policy:
+  allow_implicit_invocation: false
