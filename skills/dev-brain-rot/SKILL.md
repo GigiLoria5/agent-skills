@@ -1,6 +1,7 @@
 ---
 name: dev-brain-rot
 description: Use only when the user explicitly invokes dev-brain-rot to delegate end-to-end development, from spec and planning through implementation, review, PR preparation, and task closure. Do not select it merely because a brief is short or the user is nontechnical.
+disable-model-invocation: true
 license: MIT
 metadata:
   author: GigiLoria5
