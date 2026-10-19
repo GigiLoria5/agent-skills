@@ -1,0 +1,4 @@
+interface:
+  display_name: "Close Task"
+  short_description: "Reconcile task docs and propose useful lessons"
+  default_prompt: "Use $close-task to help me choose which specs and docs to update, reconcile them with this task, and identify useful lessons."
