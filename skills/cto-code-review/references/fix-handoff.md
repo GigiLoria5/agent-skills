@@ -1,6 +1,6 @@
 # Concise fix-agent handoff
 
-After selection, return one copyable prompt containing only accepted findings. Use a native writing artifact when supported, otherwise a fenced text block. The target is a short code-review comment, not an audit report.
+Use this reference after the user selects findings and chooses a handoff prompt or subagent. Include only accepted findings. For a handoff, return one copyable prompt using a native writing artifact when supported, otherwise a fenced text block. For delegation, use the same content as the subagent's task. The target is a short code-review comment, not an audit report.
 
 ## Keep only what the fixing agent needs
 

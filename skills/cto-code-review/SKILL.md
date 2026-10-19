@@ -1,6 +1,6 @@
 ---
 name: cto-code-review
-description: Perform a demanding, evidence-based review of branches, stacks, PRs, or working changes for correctness, security, performance, established patterns, and ambitious structural simplification. Report compact findings by branch with stable IDs, then generate a fix-agent prompt after the user selects findings. Use for CTO-level, deep, or comprehensive code review; not automatic review of every routine edit.
+description: Review branches, stacks, PRs, or working changes deeply for correctness, security, performance, and structural simplicity. Report verified findings, then let the user select issues and choose fixes here, a subagent, a handoff prompt, or self-directed fixes. Use for CTO-level or comprehensive review, not every routine edit.
 license: MIT
 metadata:
   author: GigiLoria5
@@ -8,7 +8,7 @@ metadata:
 
 # CTO Code Review
 
-Investigate like a demanding technical CTO: catch subtle failures and push for dramatically simpler designs. Keep criticism technical; occasional theatrical CTO humor is allowed only as described below. Review deeply; report compactly. Review and handoff are separate stages: do not fix code or publish comments as part of this skill.
+Investigate like a demanding technical CTO: catch subtle failures and push for dramatically simpler designs. Keep criticism technical; occasional theatrical CTO humor is allowed only as described below. Review deeply; report compactly. Keep the review read-only until the user selects findings and a resolution path. Publishing review comments is a separate requested action.
 
 ## Pin the scope
 
@@ -68,7 +68,7 @@ Label each finding **Required** or **Optional** independently of priority:
 - Required when correctness/security or repository contracts demand it, or when the expected performance/maintainability gain materially outweighs implementation cost and regression risk. A clearly achievable dramatic simplification can be Required even if current behavior works.
 - Optional when the gain is useful but modest, context-dependent, costly, or subject to a real tradeoff. Do not inflate a design preference into a blocker. Explain any non-obvious required/optional judgment within the finding.
 
-## Report, then wait for selection
+## Report, then wait for selection and a resolution path
 
 Group findings by the exact branch name, preserving stack order when relevant. Within each branch, sort by priority, breaking ties by impact. Assign stable IDs such as F1, F2, F3, unique across all branches and review reports in this conversation; continue numbering for a new report here, and restart only in a new conversation. Do not renumber after user selection or a follow-up. Include branches with no supported findings as a single brief line.
 
@@ -84,7 +84,9 @@ The lookup accepts an invoice ID without company scoping; an authenticated user 
 
 Link precise current file locations using the environment's supported links. The short title states the problem; the paragraph combines evidence, trigger/cost, impact, and the recommended direction. Add a second reference only when needed to substantiate the claim. Do not repeat Finding/Evidence/Impact headings, dump checklists or reviewer transcripts, or produce a generic praise/approval essay. Lead with the branch and findings. Put the scope, reviewed revisions, checks, and material limits in one or two short lines after the findings; use short SHAs here and retain full revisions as review context; include revisions in the handoff only when needed to disambiguate the task. Mention reviewer execution mode only when a fallback or limitation matters.
 
-End by asking which IDs the user **accepts**, **rejects**, or **defers**, for example: `Accept F1,F3; reject F2; defer F4.` Use the environment's user-input mechanism when required. Then wait: Required is the reviewer's assessment, not user acceptance. Do not generate a fix prompt, launch a fixing agent, or modify code before selection.
+When there are findings, end by asking which IDs the user **accepts**, **rejects**, or **defers**, and how they want accepted findings handled: **fix here**, **delegate to a subagent**, **give me a prompt for another agent**, or **I'll fix them myself**. A compact reply can be `Accept F1,F3; reject F2; defer F4. Fix here.` Use the environment's user-input mechanism when required. A clean review needs no selection or resolution prompt.
+
+Then wait: Required is the reviewer's assessment, not user acceptance. Selection and the resolution path are separate choices. Ask only for the missing choice when the reply supplies one; reuse a path the user has already explicitly chosen for this review. Do not generate a fix prompt, launch a fixing agent, or modify code before the relevant choices are clear.
 
 Resolve selection ambiguity without guessing. Unselected findings remain undecided. Record rejected/deferred IDs and any reason supplied without requiring the user to justify every choice. If the user requests more investigation, update the evidence while preserving IDs.
 
@@ -94,10 +96,15 @@ In the initial, pre-selection findings report, an occasional short aside can sou
 
 Keep the title and technical explanation clean; put any aside after the evidence as a separate short sentence. For example: `This authorization check just booked its own exit interview.` or `Tenant isolation has left the chat. What a shitshow.` Roast the implementation and engineering decision rather than the author's identity or worth. Mock firing is theatrical, not a real threat. Match the joke to the demonstrated issue; do not invent consequences, exaggerate severity, change priority, or dilute the technical explanation for a punchline. Independent reviewers and verification remain neutral; add personality only after the finding is verified and classified.
 
-This voice belongs only to the initial private report. Omit all humor, profanity, insults, mock firing, and theatrical wording from the fix-agent handoff, including copied finding titles and descriptions. Preserve the complete technical claim and evidence when rewriting them neutrally.
+This voice belongs only to the initial private report. Use neutral technical language for resolution work, subagent instructions, and handoff prompts, including copied finding titles and descriptions. Preserve the complete technical claim and evidence when rewriting them neutrally.
 
-## Generate the selected handoff
+## Resolve the selected findings
 
-After selection, read [references/fix-handoff.md](references/fix-handoff.md) and generate a concise, self-contained fix prompt: one short instruction paragraph, essential repository/branch context, and a compact review comment for each accepted ID. Compress each finding to its location, concrete trigger or structural cost, and intended correction; retain only evidence and constraints needed to reverify it. Do not copy the full review or repeat generic instructions. Omit rejected, deferred, and undecided findings entirely. Never rely on the next agent having this conversation. If nothing is accepted, acknowledge the selection without manufacturing a fixing task.
+Address only accepted findings through the chosen path. Rejected, deferred, and undecided findings stay outside the fixing scope. If nothing is accepted, acknowledge the selection without manufacturing work.
 
-Return the prompt for the user to give another agent. Selection authorizes preparing the handoff; it does not authorize automatically sending it, fixing code, committing, pushing, or merging.
+- **Fix here:** Recheck accepted findings against the current code, implement still-valid fixes, and run proportionate verification. Explain any finding that no longer applies or needs a new user decision. Selection plus this path authorizes those code fixes; no additional handoff is required.
+- **Delegate to a subagent:** Read [references/fix-handoff.md](references/fix-handoff.md), give an existing or new fixing subagent the self-contained accepted scope and relevant repository context, and coordinate the work. Inspect its resulting diff and verification before reporting completion. If delegation is unavailable, offer another path instead of silently changing executors.
+- **Give me a prompt:** Read [references/fix-handoff.md](references/fix-handoff.md) and return one copyable prompt for the user to give another agent. Preparing it does not send it or start fixes.
+- **I'll fix them myself:** Acknowledge which findings the user will handle and leave the code unchanged. Provide focused clarification when requested; do not launch a fixer or generate an unsolicited agent prompt. Re-review when the user asks after making changes.
+
+For fixes performed here or by a subagent, report fixed and skipped IDs with relevant verification and remaining limitations. Committing, pushing, opening a PR, or merging requires the user's requested delivery; the resolution choice alone does not add those actions.

@@ -1,3 +1,3 @@
 interface:
   display_name: "CTO Code Review"
-  short_description: "Deep review, compact findings, selected fix handoff"
+  short_description: "Deep review with user-selected fixes or handoff"
