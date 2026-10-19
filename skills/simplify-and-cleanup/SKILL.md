@@ -124,6 +124,14 @@ independently useful changes, a prerequisite refactor, or distinct rollout risks
 that would be easier to review separately. Keep one coherent change together;
 file count or separate backend/frontend folders alone do not justify a split.
 
+Also inspect the task's commit boundaries when history is available. Check for
+commits mixing independent outcomes or burying a meaningful prerequisite inside
+a larger change. Recommend coherent, reviewable commits with the necessary code
+and tests together. A large cohesive change can remain one commit; line counts
+are a reason to investigate, not a compulsory split threshold. If commits do not
+exist yet, propose their boundaries from the working diff. Keep this check within
+the current task, not an audit of unrelated history.
+
 When recommending a split, identify what belongs in each part, its parent or
 dependency, and whether the parts can land independently or as an ordered stack.
 Keep schema, API, and consumer compatibility intact at each landing point.
