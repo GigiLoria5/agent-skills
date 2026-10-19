@@ -1,6 +1,6 @@
 ---
 name: develop-spec
-description: Discuss requirements, draft a technical or product task from rough notes or a conversation, refine a spec, or plan an agreed change. Use for the requested part of spec development; ordinary implementation and simple page edits do not need this workflow.
+description: Use when the user wants to clarify an idea, draft a technical or product task from notes or conversations, refine an existing spec, or plan an agreed change. Run only the requested part; do not start implementation.
 license: MIT
 metadata:
   author: GigiLoria5
@@ -78,7 +78,7 @@ decisions are clear enough to document,
 briefly reflect the agreed outcome and any remaining uncertainty. End by offering
 to draft or update the card in Notion or the user's chosen destination.
 
-Determine the audience and level of detail: personal/technical reference,
+Determine the audience and level of detail: a personal/technical working task,
 product/business, or both. Use an explicit preference first, then an unambiguous
 destination purpose such as a product backlog or a named engineering reference.
 Mention an inferred audience briefly so the user can correct it. When unclear,
@@ -107,8 +107,10 @@ a product card technical; follow the audience choice for the current update.
 
 When requirements change, revise the relevant requirement and its affected plan
 items together. Preserve the distinction between decisions, proposals, and
-verified implementation. Keep engineering progress and test logs in the technical
-reference or PR, rather than accumulating them in the product card.
+verified implementation. Keep both task cards concise: the technical version can
+name implementation hooks and explain decisions; the product version focuses on
+the operational problem and outcome. Put execution logs and routine test reports
+in linked execution records or the PR instead of accumulating them in either card.
 
 Verify the saved result and return its link. If access is missing, leave a usable
 draft and state that it remains unsaved.

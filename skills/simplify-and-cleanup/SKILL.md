@@ -1,6 +1,6 @@
 ---
 name: simplify-and-cleanup
-description: Simplify recently written code and remove unnecessary AI verbosity, especially comments, redundant helpers, speculative abstractions, and defensive boilerplate. Use for a cleanup pass on a task diff, branch, PR, or specified files while preserving behavior and following the current repository's conventions.
+description: Use when recent task changes, a branch or PR, or specified files need a behavior-preserving simplification or cleanup pass. Check branch and commit boundaries when relevant, while following repository conventions.
 license: MIT
 metadata:
   author: GigiLoria5
@@ -135,9 +135,11 @@ the current task, not an audit of unrelated history.
 When recommending a split, identify what belongs in each part, its parent or
 dependency, and whether the parts can land independently or as an ordered stack.
 Keep schema, API, and consumer compatibility intact at each landing point.
-Suggest coherent commit boundaries and Conventional Commit summaries unless
-the repository requires another format: `<type>: <imperative summary>`, with an
-optional meaningful scope. Mention a split only when it improves this delivery.
+Suggest coherent commit boundaries and Conventional Commit messages unless
+the repository requires another format: `<type>[optional scope]: <description>`.
+Enclose a supplied scope in parentheses, for example
+`refactor(parser): simplify token lookup`. Mention a split only when it improves
+this delivery.
 
 A recommendation leaves Git history unchanged. Carry out branch creation,
 history changes, or commits only when the user has requested that delivery;

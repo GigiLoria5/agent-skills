@@ -14,7 +14,7 @@ work. Both are valid choices. The delegation should be yours.
 | You bring       | A draft, a problem, or a task to work through                                       | A goal and a place to build it                                                                             |
 | Decisions       | You own consequential choices; the agent researches and recommends                  | You explicitly delegate routine choices and coordination                                                   |
 | Missing context | The agent asks for intent it cannot retrieve                                        | The agent makes reasonable choices within scope; asks when the goal or a consequential boundary is missing |
-| Pace            | Discuss, understand, decide, then continue                                          | Spec, plan, build, review, cleanup, docs, and PR preparation flow together                                 |
+| Pace            | Discuss, understand, decide, then continue                                          | Spec, plan, build, review, cleanup, PR preparation, and closure flow together                                 |
 | Review          | Choose your own review, agent review, cleanup, or a combination                     | The agent coordinates review and resolves supported findings within the delegated scope                    |
 | Closure         | Choose which specs and docs to update; select any proposed instruction improvements | Reconcile the task's known docs; propose instruction improvements for your selection                       |
 | Responsibility  | Yours                                                                               | Still yours                                                                                                |
@@ -32,9 +32,9 @@ Slack thread. A task does not need an existing Notion card.
    The agent brings facts, options, and recommendations. When intent or a material
    tradeoff is missing, it asks you instead of silently deciding.
 2. **Agree and save the spec.** The agent offers to update your chosen card and
-   establishes its audience: technical reference, product/business, or two linked
-   versions. Clear destination context can establish the audience; ambiguity
-   brings a question.
+   establishes its audience: a personal/technical working task, a product brief,
+   or two linked versions. Clear destination context can establish the audience;
+   ambiguity brings a question.
 3. **Choose whether to plan.** Once the spec is settled, the agent asks whether
    you want an implementation plan. The plan defines useful slices, validation,
    branch/PR boundaries, dependencies, and commit preferences.
@@ -46,12 +46,12 @@ Slack thread. A task does not need an existing Notion card.
    run `simplify-and-cleanup`, or combine them. CTO review lets you accept,
    reject, or defer findings, then choose fixes here, a subagent, a handoff
    prompt, or fixing them yourself.
-6. **Close the task with `close-task`.** Choose the specs and relevant docs to
+6. **Prepare delivery.** Revisit branch boundaries if implementation changed the
+   plan and use `write-pr` for concise PR wording.
+7. **Close the task with `close-task`.** Choose the specs and relevant docs to
    update, with a shortlist suggested from the task when useful. Reconcile them
    with the actual result and consider concrete lessons. Changes to shared
    skills or steering instructions remain your choice.
-7. **Prepare delivery.** Revisit branch boundaries if implementation changed the
-   plan and use `write-pr` for concise PR wording.
 
 Use only the piece you need. `develop-spec` can discuss one decision, turn a Slack
 thread into a product task, rewrite a technical spec, or plan an already agreed
@@ -78,12 +78,13 @@ to update, then propose useful improvements from the session.
 
 For a nontechnical teammate, a familiar task, or a day when you want to delegate,
 invoke `dev-brain-rot` explicitly. It coordinates the companion skills and the
-repository's implementation conventions from spec through PR preparation.
+repository's implementation conventions from spec through PR preparation and
+task closure.
 
 It records the plan and meaningful decisions, implements and verifies the work,
-coordinates review and fixes, simplifies the result, reconciles the task's known
-documentation, and prepares the requested delivery. It proposes lessons without
-silently changing shared skills or steering instructions. You get an understandable
+coordinates review and fixes, simplifies the result, prepares the requested
+delivery, then reconciles the task's known documentation. It proposes lessons
+without silently changing shared skills or steering instructions. You get an understandable
 result, useful evidence, and anything that still needs your decision.
 
 ```text
@@ -132,15 +133,15 @@ flowchart TD
     M --> O
     N --> O
     O -->|Iterate| J
-    O -->|Ready| V["close-task: choose docs, reconcile, propose lessons"]
-    K -->|Ready| V
-    V --> P["Finalize branch split and Conventional Commits"]
+    O -->|Ready| P["Finalize branch and commit boundaries"]
+    K -->|Ready| P
     P --> Q["write-pr"]
     Q --> R["Requested PR delivery"]
     B -->|Explicit delegation| S["dev-brain-rot"]
-    S --> T["Spec, plan, build, review, cleanup, docs, and PR preparation"]
+    S --> T["Spec, plan, build, review, cleanup, and PR preparation"]
     T --> R
-    R --> U["Hand back result and remaining proposals"]
+    R --> V["close-task: reconcile docs and propose lessons"]
+    V --> U["Hand back result and remaining proposals"]
 ```
 
 ## The skills
@@ -177,6 +178,12 @@ determine which actions can actually run.
 
 This is my authored collection. [PROVENANCE.md](PROVENANCE.md) records origins
 and inspiration; third-party downloads stay with their original sources.
+
+This workflow draws inspiration from:
+
+- [Addy Osmani's agent-skills](https://github.com/addyosmani/agent-skills)
+- [Matt Pocock's skills](https://github.com/mattpocock/skills)
+- [obra/superpowers](https://github.com/obra/superpowers)
 
 Improve instructions from real use: what decision did the agent get wrong, and
 what small change would help it get that decision right next time?

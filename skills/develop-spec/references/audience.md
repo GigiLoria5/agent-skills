@@ -1,59 +1,86 @@
-# Write for the card's reader
+# Write the task for its reader
 
-Choose content by the reader's decisions and needs, rather than changing only
-the wording of the same technical document. Preserve the destination's language
-unless the user requests another one. English does not imply technical, and
-Italian does not imply product.
+Choose the card's purpose before its wording. Both versions should be concise.
+A personal/technical card helps a developer resume implementation with the
+important decisions in view. A product card explains the operational problem
+and the intended outcome to a reader who does not need the implementation.
 
-## Product or business
+Preserve the destination's language unless requested otherwise. Language alone
+does not establish the audience. The examples below are fictional and show the
+same change in two styles; they are not templates to fill mechanically.
 
-Default to a short problem and solution. Add acceptance criteria, a material
-business rule, or a scope boundary when it helps a stakeholder understand the
-outcome or make a decision. Use the vocabulary of the people doing the work.
-Let the size of the change determine the length; a brief improvement may need
-only two short paragraphs.
+## Product or business task
 
-Explain who experiences the problem, its consequence, and what will change for
-them. Keep details such as supported cases or who can perform an action when
-they affect the product promise. Translate technical constraints into their
-visible consequence.
+Default to two short sections: **Problem** and **Solution**, using the card's
+language. Explain what goes wrong today, who it affects, and what should change
+for them. A small improvement often needs just one paragraph per section.
 
-Keep model and method names, repository paths, database migrations, API and
-polling mechanics, branch plans, commit hashes, test counts, and engineering
-handoffs in the technical reference. Preserve a concise PR or technical-spec
-link when useful or already present, without expanding it into a progress log.
-Use supporting metrics only when established, relevant to a decision, and worth
-the reader's attention. A product card should remain readable as a product card
-after implementation starts.
+Keep a business rule or limitation when omitting it would change the product
+promise. Expand only when the user requests it or the outcome needs that detail.
+Select the trigger and resulting experience rather than carrying over every rule
+from the notes. Reusing an existing verifier, internal reuse windows, and similar
+implementation choices stay in the technical card unless the stakeholder needs
+their visible consequence to judge the product outcome. Phrasing a mechanism
+without code identifiers does not make it product content.
+Do not automatically append technical design, alternatives, acceptance
+checklists, implementation plans, test reports, or development handoffs.
 
-For example, a product brief about checking a saved integration could say:
+For example:
 
-> Today, access problems are discovered only when the team tries to use the
-> integration, delaying their work. Check access when the connection details
-> are saved and show a clear result, so problems can be resolved immediately.
+> **Problem**
+>
+> Operations discover broken account access while an export is already being
+> processed, interrupting their work.
+>
+> **Solution**
+>
+> Check access automatically when the export is created and show a clear result,
+> so operators can resolve access problems before processing the export.
 
-## Personal or technical reference
+Model and method names, internal fields, job orchestration, code paths, and
+polling mechanics belong in the technical card. A useful source or PR link can
+stay without turning the card into an execution record.
 
-Keep enough detail to resume the work and understand why decisions were made.
-Cover intended behavior, relevant business rules, architectural choices,
-interfaces, important edge cases, scope, and verification where they matter.
-Include precise code references when useful and grounded in inspected code.
-Separate implemented facts from proposed approaches and open decisions.
+## Personal or technical working task
 
-The same integration change might record where updates enter the application,
-when a background check starts, what constitutes an unsupported integration,
-how its result is displayed, and how the behavior will be verified. Add those
-details only when established; the example is not an instruction to use a
-background job for every integration.
+Write a compact implementation reference. State the intended change, when it
+happens, and the concrete rules that matter. Include the existing entry points,
+methods, fields, or shared behavior that explain where and how to implement it,
+when those facts are known.
 
-Put an agreed implementation plan at the end. Detailed test output and changing
-commit inventories can stay in linked execution artifacts instead of making
-the reference harder to read.
+A short **Description** and **Design** often work well. Add **Alternatives
+considered** only for choices actually discussed that are worth remembering.
+Preserve their rationale briefly. The card can contain technical identifiers
+without cataloguing every changed file or becoming an exhaustive design document.
 
-## Both versions
+For example:
 
-Use the same agreed requirements. Write the product version around the problem
-and resulting behavior, and the technical version around decisions and execution.
-Cross-link them when requested or consistent with their established use. Avoid
-copying the technical version into a product card under collapsible headings;
-the audience boundary concerns content, not its initial visibility.
+> **Description**
+>
+> Verify account access when an export is created. Reuse the existing verifier,
+> keep manual checks available, and skip connections verified successfully within
+> the existing reuse window.
+>
+> **Design**
+>
+> Both export-creation paths meet in `ExportService.create`. Enqueue the existing
+> `verify_access` job after the transaction commits at that shared point. Keep
+> status updates, concurrent-attempt handling, and failure behavior in the verifier.
+>
+> **Alternatives considered**
+>
+> Fixed-interval verification would run checks even when no export needs processing.
+
+These illustrative details are not requirements for other tasks. Ground actual
+identifiers, rules, and alternatives in the user's context and inspected sources.
+Ask about material unknowns or mark them as proposals.
+
+Append an implementation plan only when requested. Routine test counts, commit
+inventories, and execution logs belong in the execution report or linked records.
+
+## When both versions are wanted
+
+Adapt each card to its purpose using the same agreed scope. Product and technical
+examples from unrelated tasks need not be treated as matching specifications.
+Cross-link the actual paired cards when useful; keep implementation details in
+the technical version even if the product card supports collapsible sections.

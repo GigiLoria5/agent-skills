@@ -1,6 +1,6 @@
 ---
 name: cto-code-review
-description: Review branches, stacks, PRs, or working changes deeply for correctness, security, performance, and structural simplicity. Report verified findings, then let the user select issues and choose fixes here, a subagent, a handoff prompt, or self-directed fixes. Use for CTO-level or comprehensive review, not every routine edit.
+description: Use when the user requests a CTO-level, deep, or comprehensive review of a branch, stack, PR, or working changes. Investigate correctness, security, performance, and structural simplicity; let the user choose findings and their resolution.
 license: MIT
 metadata:
   author: GigiLoria5

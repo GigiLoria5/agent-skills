@@ -1,6 +1,6 @@
 ---
 name: dev-brain-rot
-description: Explicitly delegate a development task from a rough idea through spec, plan, implementation, review, cleanup, documentation, and PR preparation. Designed for users who want the agent to coordinate the workflow and choose routine implementation details.
+description: Use only when the user explicitly invokes dev-brain-rot to delegate end-to-end development, from spec and planning through implementation, review, PR preparation, and task closure. Do not select it merely because a brief is short or the user is nontechnical.
 license: MIT
 metadata:
   author: GigiLoria5
@@ -78,19 +78,21 @@ standards as driver mode.
    behavior. Revisit delivery boundaries if the actual diff has diverged from
    the plan. Make an authorized split only when it improves this delivery, and
    verify relevant behavior after edits or branch changes.
-6. **Close the task — `close-task`:** Reconcile affected specs and documentation
-   before final delivery. Documentation within the task is delegated here: use
-   known destinations and authorized updates without the driver mode's target
-   selection question. Resolve ambiguous or unknown external destinations with
-   the user. Propose useful improvements from observed friction; changing shared
-   skills or steering instructions requires its own explicit selection, even in
-   this mode. If the companion is unavailable, update the known task docs and
-   report specific lesson proposals using the same boundaries.
-7. **Delivery — `write-pr`:** Prepare concise PR wording around the outcome and
+6. **Delivery — `write-pr`:** Prepare concise PR wording around the outcome and
    essential reviewer context. Finish requested commits, pushes, and PR creation.
    Check the actual base of each branch in a stack, and put only that PR's
    contribution in its description. Link a technical execution record when useful;
    keep implementation logs out of product cards.
+7. **Close the task — `close-task`:** After PR preparation or requested PR delivery,
+   reconcile affected specs and documentation. Documentation within the task is
+   delegated here: use known destinations and authorized updates without the
+   driver mode's target selection question. Resolve ambiguous or unknown external destinations with
+   the user. Propose useful improvements from observed friction; changing shared
+   skills or steering instructions requires its own explicit selection, even in
+   this mode. If the companion is unavailable, update the known task docs and
+   report specific lesson proposals using the same boundaries. Include resulting
+   documentation changes in the already authorized delivery, updating the PR
+   when that is part of the request.
 
 Stop when the agreed outcome and relevant verification are complete, or when a
 specific blocker requires the user. Do not keep cycling for cosmetic findings.

@@ -1,6 +1,6 @@
 ---
 name: close-task
-description: Reconcile a completed task's specs and documentation, then propose useful improvements from the session. Use for task wrap-up or the documentation-and-lessons phase of delegated work; driver mode asks which documents the user wants updated.
+description: Use when the user asks to wrap up a task by reconciling its specs or docs and capturing useful lessons, or when a delegated workflow reaches task closure. In driver mode, ask which documents to update before editing.
 license: MIT
 metadata:
   author: GigiLoria5
@@ -42,9 +42,10 @@ content and human edits. Resolve conflicting intent with the user instead of
 rewriting an agreed requirement to disguise an implementation gap.
 
 Adapt content to its reader. Product documents describe the problem, resulting
-behavior, relevant scope, and remaining product decisions. Technical references
-can record design choices, interfaces, verification limits, plan changes, and
-useful PR links. Use `develop-spec`'s audience guidance when available; this skill
+behavior, relevant scope, and remaining product decisions. Technical task cards
+can record concise design choices, implementation hooks, relevant rules, and
+useful PR links without becoming execution logs or exhaustive design documents.
+Use `develop-spec`'s audience guidance when available; this skill
 does not require that companion to keep the two audiences distinct. Keep test
 transcripts, commit inventories, and implementation handoffs out of product cards.
 
