@@ -1,0 +1,4 @@
+interface:
+  display_name: "Simplify and Cleanup"
+  short_description: "Simplify code and remove unnecessary AI verbosity"
+  default_prompt: "Use $simplify-and-cleanup to simplify my current changes, clean up unnecessary comments and boilerplate, and flag behavior changes for discussion."

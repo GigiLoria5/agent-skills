@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write PR"
+  short_description: "Write concise PR titles and reviewer-focused descriptions"
+  default_prompt: "Use $write-pr to write the PR title and description for this change."
