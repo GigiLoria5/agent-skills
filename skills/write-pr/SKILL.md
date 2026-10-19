@@ -11,8 +11,12 @@ metadata:
 ## Defaults
 
 - Write in English unless the user requests another language.
-- When asked to open a PR, create it ready for review. Use draft only when explicitly requested. Writing wording alone does not authorize pushing, opening, or updating a PR.
-- Use local domain names and required repository fields. Keep the user's language and ready/draft preferences rather than inheriting a conflicting template default; omit empty boilerplate.
+- When asked to open a PR, create it ready for review. Use draft only when explicitly
+  requested. Writing wording alone does not authorize pushing, opening, or updating a
+  PR.
+- Use local domain names and required repository fields. Keep the user's language and
+  ready/draft preferences rather than inheriting a conflicting template default; omit
+  empty boilerplate.
 
 ## Understand, then select
 
@@ -44,9 +48,15 @@ responsibility or complexity it removes.
 
 These are alternatives, not sections to fill:
 
-- **Focused change:** opening, optional demo/link, and `## Additional Notes` only for details that pass the selection above.
-- **Several distinct changes:** opening, optional demo, then `## Changes Made` if a short index helps review. Group by behavior or responsibility, using past-tense verbs such as “Added” or “Fixed.” Add notes only for context that does not belong in the list.
-- **Problem explanation:** explain the trigger and consequence, then the corrected behavior. Use `## Problem` and `## Fix` when the explanation benefits from headings. A small fix can remain one paragraph.
+- **Focused change:** opening, optional demo/link, and `## Additional Notes` only for
+  details that pass the selection above.
+- **Several distinct changes:** opening, optional demo, then `## Changes Made` if a
+  short index helps review. Group by behavior or responsibility, using past-tense verbs
+  such as “Added” or “Fixed.” Add notes only for context that does not belong in the
+  list.
+- **Problem explanation:** explain the trigger and consequence, then the corrected
+  behavior. Use `## Problem` and `## Fix` when the explanation benefits from headings. A
+  small fix can remain one paragraph.
 
 For one feature with a good demo, omit `Changes Made` unless its bullets add
 review value beyond what the reviewer can see. Several edited files or layers
@@ -57,7 +67,7 @@ do not preview the changes list in the opening or repeat it in notes.
 
 Write as a colleague: direct, concrete, and brief. First person fits an actual
 judgment, such as “I kept this synchronous because the data is already available.”
-Keep supplied personality; do not invent jokes, promotional benefits, or a
+Keep a supplied personality; do not invent jokes, promotional benefits, or a
 closing summary.
 
 Keep routine successful test runs, file/test counts, lint results, and build

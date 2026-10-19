@@ -9,15 +9,15 @@ work. Both are valid choices. The delegation should be yours.
 
 ## Choose how you work
 
-| | Driver mode | `dev-brain-rot` |
-| --- | --- | --- |
-| You bring | A draft, a problem, or a task to work through | A goal and a place to build it |
-| Decisions | You own consequential choices; the agent researches and recommends | You explicitly delegate routine choices and coordination |
-| Missing context | The agent asks for intent it cannot retrieve | The agent makes reasonable choices within scope; asks when the goal or a consequential boundary is missing |
-| Pace | Discuss, understand, decide, then continue | Spec, plan, build, review, cleanup, docs, and PR preparation flow together |
-| Review | Choose your own review, CTO review, cleanup, or a combination | The agent coordinates review and resolves supported findings within the delegated scope |
-| Closure | Choose which specs and docs to update; select any proposed instruction improvements | Reconcile the task's known docs; propose instruction improvements for your selection |
-| Responsibility | Yours | Still yours |
+|                 | Driver mode                                                                         | `dev-brain-rot`                                                                                            |
+|-----------------|-------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| You bring       | A draft, a problem, or a task to work through                                       | A goal and a place to build it                                                                             |
+| Decisions       | You own consequential choices; the agent researches and recommends                  | You explicitly delegate routine choices and coordination                                                   |
+| Missing context | The agent asks for intent it cannot retrieve                                        | The agent makes reasonable choices within scope; asks when the goal or a consequential boundary is missing |
+| Pace            | Discuss, understand, decide, then continue                                          | Spec, plan, build, review, cleanup, docs, and PR preparation flow together                                 |
+| Review          | Choose your own review, agent review, cleanup, or a combination                     | The agent coordinates review and resolves supported findings within the delegated scope                    |
+| Closure         | Choose which specs and docs to update; select any proposed instruction improvements | Reconcile the task's known docs; propose instruction improvements for your selection                       |
+| Responsibility  | Yours                                                                               | Still yours                                                                                                |
 
 Both modes work for developers and nontechnical teammates. Driver mode does not
 require a technical quiz, and delegated mode does not require pretending to know
@@ -34,10 +34,10 @@ Slack thread. A task does not need an existing Notion card.
 2. **Agree and save the spec.** The agent offers to update your chosen card and
    establishes its audience: technical reference, product/business, or two linked
    versions. Clear destination context can establish the audience; ambiguity
-   brings a question. Product cards stay focused on the problem and outcome.
+   brings a question.
 3. **Choose whether to plan.** Once the spec is settled, the agent asks whether
    you want an implementation plan. The plan defines useful slices, validation,
-   branch/PR boundaries, dependencies, and Conventional Commit preferences.
+   branch/PR boundaries, dependencies, and commit preferences.
 4. **Implement and understand.** Use the repository's implementation guidance.
    Work in slices, inspect the result, ask for explanations, and iterate until
    you are satisfied. An agreed spec or plan is not an automatic instruction to
@@ -51,8 +51,7 @@ Slack thread. A task does not need an existing Notion card.
    with the actual result and consider concrete lessons. Changes to shared
    skills or steering instructions remain your choice.
 7. **Prepare delivery.** Revisit branch boundaries if implementation changed the
-   plan, finish coherent Conventional Commits, and use `write-pr` for concise
-   PR wording. Complete the commit/push/PR actions you actually requested.
+   plan and use `write-pr` for concise PR wording.
 
 Use only the piece you need. `develop-spec` can discuss one decision, turn a Slack
 thread into a product task, rewrite a technical spec, or plan an already agreed
@@ -104,13 +103,14 @@ defensive machinery, and comments should earn their place. Repository-specific
 guidance determines the stack and checks. These standards apply while building;
 cleanup is a final pass, not the first time quality matters.
 
-The automatic workflow's [implementation quality reference](skills/dev-brain-rot/references/implementation-quality.md)
+The automatic
+workflow's [implementation quality reference](skills/dev-brain-rot/references/implementation-quality.md)
 makes that baseline explicit without requiring a personal or company-specific
 development skill.
 
 ## The workflow
 
-This is the full route; individual skills can handle a single part.
+This is the full route.
 
 ```mermaid
 flowchart TD
@@ -145,19 +145,18 @@ flowchart TD
 
 ## The skills
 
-| Skill | Reach for it when |
-| --- | --- |
-| [develop-spec](skills/develop-spec/SKILL.md) | You want to think through a change and write the right spec for its audience. |
-| [cto-code-review](skills/cto-code-review/SKILL.md) | You want evidence-based scrutiny of correctness, security, performance, and structural simplicity. |
-| [simplify-and-cleanup](skills/simplify-and-cleanup/SKILL.md) | You want less complexity and boilerplate, plus a useful check of delivery boundaries. |
-| [write-pr](skills/write-pr/SKILL.md) | You want the outcome and essential reviewer context, with implementation bookkeeping left in the diff. |
-| [dev-brain-rot](skills/dev-brain-rot/SKILL.md) | You explicitly want the whole workflow coordinated for you. |
-| [close-task](skills/close-task/SKILL.md) | You want to reconcile specs and docs, then choose useful improvements from what happened. |
+| Skill                                                        | Reach for it when                                                                                      |
+|--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| [develop-spec](skills/develop-spec/SKILL.md)                 | You want to think through a change and write the right spec for its audience.                          |
+| [cto-code-review](skills/cto-code-review/SKILL.md)           | You want evidence-based scrutiny of correctness, security, performance, and structural simplicity.     |
+| [simplify-and-cleanup](skills/simplify-and-cleanup/SKILL.md) | You want less complexity and boilerplate, plus a useful check of delivery boundaries.                  |
+| [write-pr](skills/write-pr/SKILL.md)                         | You want the outcome and essential reviewer context, with implementation bookkeeping left in the diff. |
+| [dev-brain-rot](skills/dev-brain-rot/SKILL.md)               | You explicitly want the whole workflow coordinated for you.                                            |
+| [close-task](skills/close-task/SKILL.md)                     | You want to reconcile specs and docs, then choose useful improvements from what happened.              |
 
 ## Install
 
-The repository is currently private while the first release is prepared.
-After public release, install the collection with the [Skills CLI](https://skills.sh/docs):
+Install the collection with the [Skills CLI](https://skills.sh/docs):
 
 ```sh
 npx skills add GigiLoria5/agent-skills
@@ -174,18 +173,12 @@ Each skill is a portable `SKILL.md` directory. Codex metadata lives in
 `agents/openai.yaml`. Available tools, repository access, and host permissions
 determine which actions can actually run.
 
-## Authored here, published deliberately
+## Author & Inspiration
 
 This is my authored collection. [PROVENANCE.md](PROVENANCE.md) records origins
 and inspiration; third-party downloads stay with their original sources.
 
-Skill folders are ignored by default. The six folders above are explicitly
-allowlisted in [.gitignore](.gitignore); other skills can live in the same local
-checkout without joining the publication set. Adding a skill to the public
-collection is a deliberate whitelist change.
-
-Use Conventional Commits for this repository, with an optional meaningful scope.
 Improve instructions from real use: what decision did the agent get wrong, and
 what small change would help it get that decision right next time?
 
-[MIT license](LICENSE). Built by Gigi Loria.
+[MIT license](LICENSE)
