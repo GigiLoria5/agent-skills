@@ -10,6 +10,7 @@ have not yet been redirected here.
 
 | Skill | Purpose |
 | --- | --- |
+| [develop-spec](skills/develop-spec/SKILL.md) | Refine a change through conversation, choose its audience, and prepare a spec with delivery boundaries when planning is needed. |
 | [cto-code-review](skills/cto-code-review/SKILL.md) | Evidence-based review of correctness, security, performance, and structural simplicity; selected findings become a concise fix handoff. |
 | [simplify-and-cleanup](skills/simplify-and-cleanup/SKILL.md) | Behavior-preserving simplification and removal of unnecessary comments, wrappers, and defensive boilerplate. |
 | [write-pr](skills/write-pr/SKILL.md) | Concise PR titles and descriptions, using the smallest format that explains the change. |

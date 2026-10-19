@@ -1,0 +1,4 @@
+interface:
+  display_name: "Develop a Spec"
+  short_description: "Discuss an idea and write for the right audience"
+  default_prompt: "Use $develop-spec to talk through this change, then help me draft or update the spec for its audience."
