@@ -1,13 +1,14 @@
 # Write the task for its reader
 
-Choose the card's purpose before its wording. Both versions should be concise.
-A personal/technical card helps a developer resume implementation with the
-important decisions in view. A product card explains the operational problem
-and the intended outcome to a reader who does not need the implementation.
+Choose the card's purpose before its wording. A personal/technical reference
+helps its author resume work or return months later and understand what was done,
+why, and which choices shaped it. Its structure and depth follow the task.
+A product card explains the operational problem and intended outcome to a reader
+who does not need the implementation.
 
 Preserve the destination's language unless requested otherwise. Language alone
-does not establish the audience. The examples below are fictional and show the
-same change in two styles; they are not templates to fill mechanically.
+does not establish the audience. The example below is fictional; it is not a
+template to fill mechanically.
 
 ## Product or business task
 
@@ -41,42 +42,41 @@ Model and method names, internal fields, job orchestration, code paths, and
 polling mechanics belong in the technical card. A useful source or PR link can
 stay without turning the card into an execution record.
 
-## Personal or technical working task
+## Personal or technical reference
 
-Write a compact implementation reference. State the intended change, when it
-happens, and the concrete rules that matter. Include the existing entry points,
-methods, fields, or shared behavior that explain where and how to implement it,
-when those facts are known.
+Write for future-you: someone returning without the conversation or the details
+still in their head. Preserve enough context to understand the problem, what was
+chosen or done, why it made sense, and how to continue or recheck the work.
 
-A short **Description** and **Design** often work well. Add **Alternatives
-considered** only for choices actually discussed that are worth remembering.
-Preserve their rationale briefly. The card can contain technical identifiers
-without cataloguing every changed file or becoming an exhaustive design document.
+Let the task determine the structure and depth. Preserve a useful existing shape
+and evolve it as the work develops. A small change may need a few paragraphs; a
+complex investigation or implementation may need detailed analysis and supporting
+material. Choose headings and formats that make this particular work easy to
+navigate. There is no required template, section list, or length ceiling.
 
-For example:
+Use that future-reader purpose to decide what earns space. Explain consequential
+choices, constraints, alternatives and their tradeoffs when they influenced the
+result. Retain concrete behavior, technical contracts, examples, diagrams, code
+references, commands, verification evidence, or operational instructions when
+they help someone understand, reproduce, validate, or continue the work. These
+are options, not a checklist to populate for every task. More complexity warrants
+more detail; a short card is useful only if it preserves what matters.
 
-> **Description**
->
-> Verify account access when an export is created. Reuse the existing verifier,
-> keep manual checks available, and skip connections verified successfully within
-> the existing reuse window.
->
-> **Design**
->
-> Both export-creation paths meet in `ExportService.create`. Enqueue the existing
-> `verify_access` job after the transaction commits at that shared point. Keep
-> status updates, concurrent-attempt handling, and failure behavior in the verifier.
->
-> **Alternatives considered**
->
-> Fixed-interval verification would run checks even when no export needs processing.
+Keep the record coherent as understanding changes. Make the current direction
+and result clear while preserving earlier reasoning that explains a changed
+choice. Distinguish proposals, unresolved questions, decisions, and verified
+outcomes. Ground factual details in the user's context and inspected sources;
+ask about material unknowns or mark them as proposals.
 
-These illustrative details are not requirements for other tasks. Ground actual
-identifiers, rules, and alternatives in the user's context and inspected sources.
-Ask about material unknowns or mark them as proposals.
+Organize detail so the important context and decisions are easy to find. Use
+links or collapsible supporting material when helpful. Keep meaningful findings
+and reproducible checks; summarize repetitive progress chatter and raw logs
+unless their exact contents are needed later. Avoid duplicating information
+without adding context or an explanation.
 
-Append an implementation plan only when requested. Routine test counts, commit
-inventories, and execution logs belong in the execution report or linked records.
+Add an implementation plan when requested, following the planning guidance.
+The reference can develop from an initial idea into a record of the completed
+work without losing the reasoning that makes it useful later.
 
 ## When both versions are wanted
 

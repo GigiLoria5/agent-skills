@@ -42,11 +42,12 @@ content and human edits. Resolve conflicting intent with the user instead of
 rewriting an agreed requirement to disguise an implementation gap.
 
 Adapt content to its reader. Product documents describe the problem, resulting
-behavior, relevant scope, and remaining product decisions. Technical task cards
-can record concise design choices, implementation hooks, relevant rules, and
-useful PR links without becoming execution logs or exhaustive design documents.
-Use `develop-spec`'s audience guidance when available; this skill
-does not require that companion to keep the two audiences distinct. Keep test
+behavior, relevant scope, and remaining product decisions. Technical references
+preserve what the user needs to resume work or understand the result months
+later: context, choices and rationale, and useful implementation or verification
+details. Adapt their structure and depth to the task's complexity. Use
+`develop-spec`'s audience guidance when available; this skill does not require
+that companion to keep the two audiences distinct. Keep test
 transcripts, commit inventories, and implementation handoffs out of product cards.
 
 Prefer updating an existing authoritative document to adding another summary.

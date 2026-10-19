@@ -14,7 +14,7 @@ work. Both are valid choices. The delegation should be yours.
 | You bring       | A draft, a problem, or a task to work through                                       | A goal and a place to build it                                                                             |
 | Decisions       | You own consequential choices; the agent researches and recommends                  | You explicitly delegate routine choices and coordination                                                   |
 | Missing context | The agent asks for intent it cannot retrieve                                        | The agent makes reasonable choices within scope; asks when the goal or a consequential boundary is missing |
-| Pace            | Discuss, understand, decide, then continue                                          | Spec, plan, build, review, cleanup, PR preparation, and closure flow together                                 |
+| Pace            | Discuss, understand, decide, then continue                                          | Spec, plan, build, review, cleanup, PR preparation, and closure flow together                              |
 | Review          | Choose your own review, agent review, cleanup, or a combination                     | The agent coordinates review and resolves supported findings within the delegated scope                    |
 | Closure         | Choose which specs and docs to update; select any proposed instruction improvements | Reconcile the task's known docs; propose instruction improvements for your selection                       |
 | Responsibility  | Yours                                                                               | Still yours                                                                                                |
@@ -84,7 +84,8 @@ task closure.
 It records the plan and meaningful decisions, implements and verifies the work,
 coordinates review and fixes, simplifies the result, prepares the requested
 delivery, then reconciles the task's known documentation. It proposes lessons
-without silently changing shared skills or steering instructions. You get an understandable
+without silently changing shared skills or steering instructions. You get an
+understandable
 result, useful evidence, and anything that still needs your decision.
 
 ```text
@@ -178,12 +179,6 @@ determine which actions can actually run.
 
 This is my authored collection. [PROVENANCE.md](PROVENANCE.md) records origins
 and inspiration; third-party downloads stay with their original sources.
-
-This workflow draws inspiration from:
-
-- [Addy Osmani's agent-skills](https://github.com/addyosmani/agent-skills)
-- [Matt Pocock's skills](https://github.com/mattpocock/skills)
-- [obra/superpowers](https://github.com/obra/superpowers)
 
 Improve instructions from real use: what decision did the agent get wrong, and
 what small change would help it get that decision right next time?

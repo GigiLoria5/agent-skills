@@ -50,7 +50,8 @@ Automatic coordination retains the same simplicity, typing, and verification
 standards as driver mode.
 
 1. **Spec — `develop-spec`:** Read the draft and relevant sources. Develop a
-   concise spec for the intended audience. Use explicit audience preferences or
+   spec whose structure and depth fit the task and intended audience. Use explicit
+   audience preferences or
    clear destination context; ask only when uncertain. Keep product requirements
    separate from technical decisions. Routine choices are delegated in this mode,
    so move through the spec and plan without the driver mode's phase questions.
@@ -86,7 +87,8 @@ standards as driver mode.
 7. **Close the task — `close-task`:** After PR preparation or requested PR delivery,
    reconcile affected specs and documentation. Documentation within the task is
    delegated here: use known destinations and authorized updates without the
-   driver mode's target selection question. Resolve ambiguous or unknown external destinations with
+   driver mode's target selection question. Resolve ambiguous or unknown external
+   destinations with
    the user. Propose useful improvements from observed friction; changing shared
    skills or steering instructions requires its own explicit selection, even in
    this mode. If the companion is unavailable, update the known task docs and

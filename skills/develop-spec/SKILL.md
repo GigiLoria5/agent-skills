@@ -78,7 +78,7 @@ decisions are clear enough to document,
 briefly reflect the agreed outcome and any remaining uncertainty. End by offering
 to draft or update the card in Notion or the user's chosen destination.
 
-Determine the audience and level of detail: a personal/technical working task,
+Determine the audience and level of detail: a personal/technical reference,
 product/business, or both. Use an explicit preference first, then an unambiguous
 destination purpose such as a product backlog or a named engineering reference.
 Mention an inferred audience briefly so the user can correct it. When unclear,
@@ -107,17 +107,19 @@ a product card technical; follow the audience choice for the current update.
 
 When requirements change, revise the relevant requirement and its affected plan
 items together. Preserve the distinction between decisions, proposals, and
-verified implementation. Keep both task cards concise: the technical version can
-name implementation hooks and explain decisions; the product version focuses on
-the operational problem and outcome. Put execution logs and routine test reports
-in linked execution records or the PR instead of accumulating them in either card.
+verified implementation. Shape the technical reference around what helps the user
+resume work or understand it months later: context, choices, rationale, and useful
+technical or verification details, with depth proportional to complexity. Keep
+the product version focused on the operational problem and outcome. Follow the
+audience guidance when choosing what to preserve and where supporting detail goes.
 
 Verify the saved result and return its link. If access is missing, leave a usable
 draft and state that it remains unsaved.
 
 ## Offer implementation planning next
 
-For a spec-development flow, once the user is satisfied with the spec, after saving it or keeping the agreed
+For a spec-development flow, once the user is satisfied with the spec, after saving it
+or keeping the agreed
 draft in chat, ask whether they want to turn it into an implementation plan.
 Saving a spec alone does not select this next phase. If planning was already
 requested, proceed without asking again.
