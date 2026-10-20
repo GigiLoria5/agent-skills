@@ -258,15 +258,12 @@ flowchart TD
 
 ## Editing this collection
 
-Use Node.js 22.22.2+ from the 22.x release line, or another version supported by
-[package.json](package.json). Run `npm install` once to enable the commit hook.
-Commits automatically format and lint staged Markdown. CI checks all published
-Markdown on pushes and PRs. Ignored private skills and working notes are
-excluded.
+Use Node.js 22.22.2+ (22.x) or a version supported by `package.json`. Run
+`npm install` once to enable commit hooks. Commits auto-format and lint staged
+Markdown; CI checks published Markdown. Private skills and notes are excluded.
 
 ```sh
-npm run format  # Format Markdown now
-npm run check   # Check formatting and Markdown rules
+make lint
 ```
 
 ## Author & Inspiration
