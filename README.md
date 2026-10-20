@@ -13,6 +13,7 @@ work. Both are valid choices. The delegation should be yours.
 - [Choose how you work](#choose-how-you-work)
 - [Driver mode: stay involved](#driver-mode-stay-involved)
 - [Make It Happen: deliberately delegate](#make-it-happen-deliberately-delegate)
+- [Common uses](#common-uses)
 - [The workflow](#the-workflow)
 - [The skills](#the-skills)
 - [Author & inspiration](#author--inspiration)
@@ -148,6 +149,51 @@ Stop after implementation and verification; I'll review before we prepare PRs.
 This mode is explicit-only. It does not activate because you gave a short prompt
 or because you are not a developer. It can still need a real goal, access, or a
 decision outside the delegated scope. You can take the wheel back at any time.
+
+## Common uses
+
+These examples assume the agent knows the target repository and can read linked
+sources. A card can be the only task input: the agent handles routine technical
+choices and asks when product intent or necessary access is missing.
+
+### From a card to a PR
+
+```text
+Use $make-it-happen for this Notion card: <link>.
+Take it through implementation, review, fixes, cleanup, and PR delivery in this
+repository. Open a PR, then align the relevant documentation with the result.
+```
+
+### Think first, delegate implementation later
+
+```text
+Use $think-it-through to discuss this idea: <draft or link>.
+Help me agree the spec and plan; don't start implementation yet.
+```
+
+Once you're satisfied with the plan:
+
+```text
+Use $make-it-happen to implement the plan we agreed.
+Stop after implementation and verification; I'll review before we prepare PRs.
+```
+
+### Clean up work you've already built
+
+```text
+Use $simplify-and-cleanup on these existing changes.
+Preserve the intended behavior, remove unnecessary complexity, and split the work
+into coherent branches and commits where useful. Don't open PRs yet.
+```
+
+### Review and deliver existing changes
+
+```text
+Use $make-it-happen to review and deliver these existing changes.
+Start from the implementation: run CTO review, resolve supported findings,
+simplify, arrange useful branch and commit boundaries, and open the PRs.
+Then align the relevant documentation with the result.
+```
 
 ## The workflow
 
