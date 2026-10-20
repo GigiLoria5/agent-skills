@@ -1,16 +1,18 @@
 ---
-name: close-task
-description: Use when the user asks to wrap up a task by reconciling its specs or docs and capturing useful lessons, or when a delegated workflow reaches task closure. In driver mode, ask which documents to update before editing.
+name: align-and-improve
+description: Use when the user wants to reconcile task specs or docs with the result, capture useful lessons, or wrap up completed work. Run the requested part; in driver mode, establish document targets before editing.
 license: MIT
 metadata:
   author: GigiLoria5
 ---
 
-# Close a task
+# Align and improve
 
 Leave the task's documentation consistent with the verified result and identify
-small improvements that would make the next task easier. Closing documentation
-does not mean declaring the change merged, deployed, or fully verified.
+small improvements that would make the next task easier. Reconcile docs,
+propose lessons, or do both as requested; this skill can be used before final
+closure. Closing documentation does not mean declaring the change merged,
+deployed, or fully verified.
 
 ## Establish what to update
 
@@ -41,19 +43,20 @@ decisions, and plan against what was implemented and verified. Preserve unrelate
 content and human edits. Resolve conflicting intent with the user instead of
 rewriting an agreed requirement to disguise an implementation gap.
 
-Adapt content to its reader. Product documents describe the problem, resulting
-behavior, relevant scope, and remaining product decisions. Technical references
-preserve what the user needs to resume work or understand the result months
-later: context, choices and rationale, and useful implementation or verification
-details. Adapt their structure and depth to the task's complexity. Use
-`develop-spec`'s audience guidance when available; this skill does not require
-that companion to keep the two audiences distinct. Keep test
-transcripts, commit inventories, and implementation handoffs out of product cards.
+Adapt content to its reader. Product documents describe the operational
+problem and resulting behavior. Personal technical references are concise
+memory aids: what changed, why, consequential choices, and unresolved risks.
+Add detail only when needed to understand or resume the work; report routine
+verification to the user separately. Read `think-it-through`'s audience
+guidance when available before drafting. If unavailable, apply these defaults
+without adding automatic Status or Copy sections. Preserve exact wording
+only when it is itself a requirement or meaningful decision.
 
 Prefer updating an existing authoritative document to adding another summary.
-Keep requirements, affected plan items, and current behavior consistent. Mark
-remaining work and verification limits accurately; distinguish planned,
-implemented, tested, merged, and deployed. Preserve status properties unless
+Keep requirements, affected plan items, and current behavior consistent.
+Record remaining work or verification limits that affect the next action;
+never imply that implementation is merged or deployed without evidence.
+Preserve status properties unless
 updating them is part of the requested closure or established authorized flow.
 
 Use the repository's documentation placement rules. Stable behavior belongs in

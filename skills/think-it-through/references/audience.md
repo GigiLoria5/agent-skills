@@ -48,19 +48,31 @@ Write for future-you: someone returning without the conversation or the details
 still in their head. Preserve enough context to understand the problem, what was
 chosen or done, why it made sense, and how to continue or recheck the work.
 
+Default to a concise memory aid, not an execution diary. Keep what changed,
+why, consequential choices, and unresolved risks. Give a point one home.
+Add deeper explanation only when future-you would otherwise misunderstand
+the result or struggle to resume the work. Complexity permits more detail;
+it does not require recording every mechanism or check.
+
 Let the task determine the structure and depth. Preserve a useful existing shape
 and evolve it as the work develops. A small change may need a few paragraphs; a
 complex investigation or implementation may need detailed analysis and supporting
 material. Choose headings and formats that make this particular work easy to
 navigate. There is no required template, section list, or length ceiling.
 
-Use that future-reader purpose to decide what earns space. Explain consequential
-choices, constraints, alternatives and their tradeoffs when they influenced the
-result. Retain concrete behavior, technical contracts, examples, diagrams, code
-references, commands, verification evidence, or operational instructions when
-they help someone understand, reproduce, validate, or continue the work. These
-are options, not a checklist to populate for every task. More complexity warrants
-more detail; a short card is useful only if it preserves what matters.
+Use that future-reader purpose to select consequential choices, constraints,
+and tradeoffs. Link to code or supporting evidence rather than narrating it.
+Include a command, diagram, contract, or reproducible check only when needed
+to explain a non-obvious decision or continue the work; a requested
+investigation or runbook can reasonably need more of that material. Preserve
+precise risks even when they need more explanation than the main change.
+
+Add unfinished work or a verification limitation when it changes what to do
+next. Completed test inventories, manual-check stories, and merge-state
+announcements usually belong in the completion report or tracker properties,
+not an appended Status section. Quote UI copy only when the wording itself
+is a requirement or consequential decision; do not append a Copy section
+merely because the implementation introduced messages.
 
 Keep the record coherent as understanding changes. Make the current direction
 and result clear while preserving earlier reasoning that explains a changed
@@ -68,11 +80,10 @@ choice. Distinguish proposals, unresolved questions, decisions, and verified
 outcomes. Ground factual details in the user's context and inspected sources;
 ask about material unknowns or mark them as proposals.
 
-Organize detail so the important context and decisions are easy to find. Use
-links or collapsible supporting material when helpful. Keep meaningful findings
-and reproducible checks; summarize repetitive progress chatter and raw logs
-unless their exact contents are needed later. Avoid duplicating information
-without adding context or an explanation.
+Organize the selected context and decisions so they are easy to find.
+Supporting links do not justify adding an unrequested technical appendix.
+Before saving, remove detail whose absence would not change future-you's
+understanding, decision, or next action.
 
 Add an implementation plan when requested, following the planning guidance.
 The reference can develop from an initial idea into a record of the completed

@@ -51,6 +51,10 @@ example, rather than recomputing production logic in the assertion.
 
 Reuse nearby fixtures and helpers. Parametrize genuinely repeated scenarios when
 it improves clarity; keep distinct side effects or failure paths separate.
+Name scenarios through descriptive tests and framework-supported case IDs (pytest
+`ids` / `pytest.param(id=...)`, or named Vitest/Jest table cases),
+rather than comments labeling rows. Preserve comments for non-obvious intent
+and follow local conventions; parameterization should earn its own clarity.
 Mock only the dependencies needed to isolate the behavior. Add concurrency,
 idempotency, or query-count coverage when those are actual properties at risk.
 

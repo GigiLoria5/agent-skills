@@ -1,0 +1,4 @@
+interface:
+  display_name: "Align and Improve"
+  short_description: "Reconcile task docs and propose useful lessons"
+  default_prompt: "Use $align-and-improve to help me choose which specs and docs to update, reconcile them with this task, and identify useful lessons."

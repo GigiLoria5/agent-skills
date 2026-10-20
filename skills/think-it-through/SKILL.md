@@ -1,12 +1,12 @@
 ---
-name: develop-spec
+name: think-it-through
 description: Use when the user wants to clarify an idea, draft a technical or product task from notes or conversations, refine an existing spec, or plan an agreed change. Run only the requested part; do not start implementation.
 license: MIT
 metadata:
   author: GigiLoria5
 ---
 
-# Develop a spec
+# Think it through
 
 Help the user think through the work as a colleague. Build on what they already
 know and contribute useful reasoning, examples, and alternatives along the way.
@@ -47,6 +47,11 @@ for the choices it covers. State the delegated scope briefly and make those
 decisions without repeatedly asking for them. Still establish a meaningful goal
 if none is available. Clear requirements need no artificial questioning or tests
 of the user's technical knowledge.
+
+Decision ownership can change for one choice or phase. The user can agree a
+spec and plan here, then explicitly use `make-it-happen` for implementation
+or another bounded phase. Carry settled decisions forward; switching modes
+does not restart the workflow or delegate later phases automatically.
 
 ## Converse
 
@@ -107,11 +112,9 @@ a product card technical; follow the audience choice for the current update.
 
 When requirements change, revise the relevant requirement and its affected plan
 items together. Preserve the distinction between decisions, proposals, and
-verified implementation. Shape the technical reference around what helps the user
-resume work or understand it months later: context, choices, rationale, and useful
-technical or verification details, with depth proportional to complexity. Keep
-the product version focused on the operational problem and outcome. Follow the
-audience guidance when choosing what to preserve and where supporting detail goes.
+verified implementation. Follow the audience guidance to keep a concise record
+of the outcome, consequential choices, and risks that future-you needs. Keep
+the product version focused on the operational problem and outcome.
 
 Verify the saved result and return its link. If access is missing, leave a usable
 draft and state that it remains unsaved.
@@ -120,20 +123,30 @@ draft and state that it remains unsaved.
 
 For a spec-development flow, once the user is satisfied with the spec, after saving it
 or keeping the agreed
-draft in chat, ask whether they want to turn it into an implementation plan.
+draft in chat, offer an implementation plan and its destination together:
+"Want an implementation plan? I can keep it as ignored Markdown in this repo,
+add it to the technical card, or do both." Reuse a destination already chosen
+for the plan; the spec's destination alone does not choose where the plan goes.
 Saving a spec alone does not select this next phase. If planning was already
-requested, proceed without asking again.
+requested, proceed without asking again and resolve only a missing destination.
+For a plan-only request without a destination, default to ignored local Markdown
+when a repository is available and identify the path.
 
 For the plan, inspect relevant code and repository guidance and read
 [delivery planning](references/delivery-planning.md). Propose verifiable slices,
 branch or PR boundaries, dependencies, and Conventional Commit preferences.
-Keep consequential choices with the user unless they delegated them. Append
-the agreed plan to the technical reference, preserving the spec above it.
+Keep consequential choices with the user unless they delegated them. Save to
+the selected destination. For local Markdown, follow repository placement rules
+and reuse a suitable ignored location. Otherwise use a task-named file under
+`work/` and add the narrow path to the exclusion file located by
+`git rev-parse --git-path info/exclude`. Verify that Git ignores the file; keep it
+untracked unless the user asks otherwise. Preserve unrelated files and exclusions.
+Without a repo,
+keep the plan in chat until a destination is established.
 
+When the user chooses the technical card, preserve the spec above the plan.
 For a product card, keep delivery information at the level of visible outcomes
-and link to the technical plan when wanted. If there is no technical destination,
-prepare the plan in chat and establish where to save it instead of putting
-engineering details into the product card.
+and link to the plan when wanted.
 
 An agreed plan does not itself start implementation. Continue into coding,
 branch creation, or delivery when the user's request also covers those actions.

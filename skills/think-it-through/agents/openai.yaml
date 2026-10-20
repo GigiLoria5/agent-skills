@@ -1,0 +1,4 @@
+interface:
+  display_name: "Think It Through"
+  short_description: "Draft, discuss, refine, or plan a spec"
+  default_prompt: "Use $think-it-through to talk through this change, then help me draft or update the spec for its audience."

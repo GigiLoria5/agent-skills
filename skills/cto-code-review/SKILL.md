@@ -55,7 +55,11 @@ concurrency is limited, schedule reviewers within available capacity; do not omi
 lens.
 
 Give each reviewer the pinned scope, relevant requirements, repository guidance, and
-their lens. Let them inspect original files and callers. Do not give them the
+their lens. Use fresh contexts and targeted source pointers instead of
+forking the full task history. Request compact findings and evidence, not
+inspection transcripts; avoid repeating each reviewer's investigation unless
+needed to verify a candidate. Let them inspect original files and callers. Do not give
+them the
 coordinator's suspected findings, another reviewer's conclusions, or the implementation
 conversation as a substitute for evidence. Ask for candidate findings with precise
 locations, concrete evidence, consequences, a feasible remedy, and verification limits.
@@ -191,7 +195,7 @@ not generate a fix prompt, launch a fixing agent, or modify code before the rele
 choices are clear.
 
 The user may explicitly delegate finding selection and execution within a bounded
-automatic workflow, including invoking `dev-brain-rot`. Apply that delegation only
+automatic workflow, including invoking `make-it-happen`. Apply that delegation only
 to its covered decisions: record the selected, skipped, and deferred IDs and the
 reason, and perform authorized fixes. Return consequential product or scope
 changes to the user when outside that delegation. An ordinary review request,

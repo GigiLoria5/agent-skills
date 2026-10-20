@@ -8,9 +8,9 @@ work/
 
 # Skills stay local unless explicitly selected for publication.
 /skills/*
-!/skills/develop-spec/
+!/skills/think-it-through/
 !/skills/cto-code-review/
 !/skills/simplify-and-cleanup/
 !/skills/write-pr/
-!/skills/dev-brain-rot/
-!/skills/close-task/
+!/skills/make-it-happen/
+!/skills/align-and-improve/

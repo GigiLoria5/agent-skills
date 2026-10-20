@@ -1,0 +1,6 @@
+interface:
+  display_name: "Make It Happen"
+  short_description: "Explicitly delegate the development workflow"
+  default_prompt: "Use $make-it-happen to handle the requested phases of this task, reusing agreed decisions and choosing routine technical details for me."
+policy:
+  allow_implicit_invocation: false

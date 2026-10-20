@@ -94,6 +94,11 @@ implementation.
 - Delete captions that restate, announce, or anticipate the code: what the next
   line does, how a branch works, or a routine description on every function and
   class. Test names should explain behavior without narrating the setup.
+- Identify test scenarios through descriptive test names or framework-supported
+  case IDs rather than comments labeling each row: for example, pytest `ids`
+  or `pytest.param(id=...)`, or named Vitest/Jest table cases. Follow the local
+  framework's conventions. Keep comments explaining non-obvious intent; do not
+  introduce parameterization merely to remove a comment.
 - Prefer expressive names and clear structure over explanatory prose. Keep a
   comment when it communicates an essential reason or constraint that the code
   cannot express: a surprising business rule, dependency limitation, deliberate
