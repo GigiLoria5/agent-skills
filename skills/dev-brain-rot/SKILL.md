@@ -83,8 +83,11 @@ standards as driver mode.
 6. **Delivery — `write-pr`:** Prepare concise PR wording around the outcome and
    essential reviewer context. Finish requested commits, pushes, and PR creation.
    Check the actual base of each branch in a stack, and put only that PR's
-   contribution in its description. Link a technical execution record when useful;
-   keep implementation logs out of product cards.
+   contribution in its description. Use `gh-stack` when available and appropriate
+   for an agreed stack, reading its installed guidance first. Finish generated
+   PR wording with `write-pr` after submission, within the requested delivery.
+   Link a technical execution record when useful; keep implementation logs out
+   of product cards.
 7. **Close the task — `close-task`:** After PR preparation or requested PR delivery,
    reconcile affected specs and documentation. Documentation within the task is
    delegated here: use known destinations and authorized updates without the

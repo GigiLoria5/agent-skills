@@ -24,6 +24,12 @@ Read the actual diff and enough context to understand the change. Describe the
 current PR's contribution, using an earlier PR link for shared stack context.
 Rewrite around the final implementation when scope changes.
 
+When delivery uses `gh-stack`, read its installed guidance for stack operations.
+Treat its generated PR titles and bodies as initial text. After an authorized
+submission, apply this skill to each PR's actual contribution, update its wording,
+and verify the saved result. Recheck wording after resubmission in case it was
+regenerated. A wording-only request still does not authorize stack submission.
+
 Open with one short sentence stating what the PR enables or fixes. Add a second
 only when it supplies essential context. Attach an available demo, screenshot,
 or source card when useful. A clear opening and demo may be the whole description.

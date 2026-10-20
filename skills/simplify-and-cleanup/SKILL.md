@@ -144,6 +144,9 @@ this delivery.
 A recommendation leaves Git history unchanged. Carry out branch creation,
 history changes, or commits only when the user has requested that delivery;
 preserve existing user work and recheck affected boundaries if a split is made.
+For an authorized split into an ordered PR stack, use the installed `gh-stack`
+guidance when the helper is available and appropriate. Preserve the agreed
+parent/base relationships; the helper is optional and adds no delivery authority.
 
 ## Verify and report
 

@@ -34,6 +34,12 @@ Name actual branches when the user or repository has supplied the convention;
 otherwise describe the boundaries without pretending branches already exist.
 Revisit the plan if implementation reveals a materially different dependency.
 
+When the agreed boundaries form an ordered PR stack, consider `gh-stack` if it is
+available and fits the repository's delivery flow. Read its installed guidance
+before use. Record the parent/base relationship for each branch; ordinary Git
+remains sufficient when the helper is unavailable or unnecessary. Planning a
+stack does not submit it or authorize history changes.
+
 ## Commits and completion
 
 Plan coherent commits rather than one commit per file or one undifferentiated
