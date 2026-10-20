@@ -1,0 +1,4 @@
+{
+  // Prettier owns prose wrapping; links, tables, and code can exceed its width.
+  "MD013": false
+}

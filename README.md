@@ -16,6 +16,7 @@ work. Both are valid choices. The delegation should be yours.
 - [Common uses](#common-uses)
 - [The workflow](#the-workflow)
 - [The skills](#the-skills)
+- [Editing this collection](#editing-this-collection)
 - [Author & inspiration](#author--inspiration)
 
 ## Install
@@ -27,19 +28,18 @@ npx skills add GigiLoria5/agent-skills -g -a claude-code -a codex --skill '*'
 ```
 
 Replace `'*'` with a skill name such as `write-pr` to install just that skill.
-Omit `-g` for a project-local installation. Install the full collection when using
-`make-it-happen`, so its companion skills are available.
+Omit `-g` for a project-local installation. Install the full collection when
+using `make-it-happen`, so its companion skills are available.
 
-Use `$think-it-through` in Codex or `/think-it-through` in Claude Code. The examples
-below
-use Codex's syntax. See
-the [Skills CLI reference](https://github.com/vercel-labs/skills/blob/main/docs/commands.md)
+Examples use Claude's `/skill-name` notation. Select the skill from your agent's
+menu, then add your request. See the
+[Skills CLI reference](https://github.com/vercel-labs/skills/blob/main/docs/commands.md)
 for other agents and options.
 
 ## Choose how you work
 
 |                 | Driver mode                                                                         | `make-it-happen`                                                                                           |
-|-----------------|-------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| --------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | You bring       | A draft, a problem, or a task to work through                                       | A goal and a place to build it                                                                             |
 | Decisions       | You own consequential choices; the agent researches and recommends                  | You explicitly delegate routine choices and coordination                                                   |
 | Missing context | The agent asks for intent it cannot retrieve                                        | The agent makes reasonable choices within scope; asks when the goal or a consequential boundary is missing |
@@ -53,15 +53,16 @@ require a technical quiz, and delegated mode does not require pretending to know
 every implementation detail.
 
 Choose the mode for each piece, not once for the whole task. Think through the
-spec and plan in driver mode, delegate implementation with `make-it-happen`, then
-review the result yourself. You can switch back at any point; settled decisions
-carry forward and delegation stays within the phases you requested.
+spec and plan in driver mode, delegate implementation with `make-it-happen`,
+then review the result yourself. You can switch back at any point; settled
+decisions carry forward and delegation stays within the phases you requested.
 
 In either mode, aim for the simplest complete solution. Reuse what exists, keep
-types and contracts precise, and verify behavior with meaningful tests and checks.
-Repository guidance determines the stack and conventions. Quality is part of
-each implementation slice; cleanup helps remove what is still unnecessary.
-The [implementation quality reference](skills/make-it-happen/references/implementation-quality.md)
+types and contracts precise, and verify behavior with meaningful tests and
+checks. Repository guidance determines the stack and conventions. Quality is
+part of each implementation slice; cleanup helps remove what is still
+unnecessary. The
+[implementation quality reference](skills/make-it-happen/references/implementation-quality.md)
 sets out the baseline used by the delegated workflow.
 
 ## Driver mode: stay involved
@@ -69,47 +70,46 @@ sets out the baseline used by the delegated workflow.
 Start with a rough draft, a few details, a pasted conversation, or an accessible
 Slack thread. A task does not need an existing Notion card.
 
-`think-it-through` and `make-it-happen` work best with connected context: use MCP
-integrations for Notion, Slack, or your task tracker so the agent can read sources
-and update the destination you choose. Connections are optional; pasted notes,
-conversations, and local Markdown work too. Access to a tool does not choose what
-the agent should update.
+`think-it-through` and `make-it-happen` work best with connected context: use
+MCP integrations for Notion, Slack, or your task tracker so the agent can read
+sources and update the destination you choose. Connections are optional; pasted
+notes, conversations, and local Markdown work too. Access to a tool does not
+choose what the agent should update.
 
-1. **Discuss with `think-it-through`.** Clarify the problem through a conversation.
-   The agent brings facts, options, and recommendations. When intent or a material
-   tradeoff is missing, it asks you instead of silently deciding.
+1. **Discuss with `think-it-through`.** Clarify the problem through a
+   conversation. The agent brings facts, options, and recommendations. When
+   intent or a material tradeoff is missing, it asks you instead of silently
+   deciding.
 2. **Agree and save the spec.** The agent offers to update your chosen card and
-   establishes its audience: a personal/technical reference, a product brief,
-   or two linked versions. Clear destination context can establish the audience;
+   establishes its audience: a personal/technical reference, a product brief, or
+   two linked versions. Clear destination context can establish the audience;
    ambiguity brings a question.
 3. **Choose whether to plan.** Once the spec is settled, the agent asks whether
    you want an implementation plan. The plan defines useful slices, validation,
-   branch/PR boundaries, dependencies, and commit preferences. Keep it as ignored
-   local Markdown in the repository, add it to the technical card, or use both.
-   Local plans stay untracked unless you ask otherwise.
+   branch/PR boundaries, dependencies, and commit preferences. Keep it as
+   ignored local Markdown in the repository, add it to the technical card, or
+   use both. Local plans stay untracked unless you ask otherwise.
 4. **Implement and understand.** Use the repository's implementation guidance.
    Work in slices, inspect the result, ask for explanations, and iterate until
    you are satisfied. An agreed spec or plan is not an automatic instruction to
    start coding.
-5. **Choose review and cleanup.** Review it yourself, use `cto-code-review`,
-   run `simplify-and-cleanup`, or combine them. CTO review lets you accept,
-   reject, or defer findings, then choose fixes here, a subagent, a handoff
-   prompt, or fixing them yourself.
+5. **Choose review and cleanup.** Review it yourself, use `cto-code-review`, run
+   `simplify-and-cleanup`, or combine them. CTO review lets you accept, reject,
+   or defer findings, then choose fixes here, a subagent, a handoff prompt, or
+   fixing them yourself.
 6. **Prepare delivery.** Revisit branch boundaries if implementation changed the
    plan and use `write-pr` for concise PR wording.
-7. **Align docs and improve with `align-and-improve`.** Choose the specs and relevant
-   docs to
-   update, with a shortlist suggested from the task when useful. Reconcile them
-   with the actual result and consider concrete lessons. Changes to shared
-   skills or steering instructions remain your choice.
+7. **Align docs and improve with `align-and-improve`.** Choose the specs and
+   relevant docs to update, with a shortlist suggested from the task when
+   useful. Reconcile them with the actual result and consider concrete lessons.
+   Changes to shared skills or steering instructions remain your choice.
 
-Use only the piece you need. `think-it-through` can discuss one decision, turn a Slack
-thread into a product task, rewrite a technical spec, or plan an already agreed
-change. It does not restart the full workflow for each of those requests.
+Use only the piece you need. `think-it-through` can discuss one decision, turn a
+Slack thread into a product task, rewrite a technical spec, or plan an already
+agreed change. It does not restart the full workflow for each of those requests.
 
 ```text
-Use $think-it-through to talk through this draft: <card or idea>.
-I want to understand the choices and stay in the driver's seat.
+/think-it-through <card or idea>
 ```
 
 A short brief is not permission to invent your product decisions. You can
@@ -117,33 +117,31 @@ explicitly delegate an individual choice with “you decide” or “go automati
 without handing over the entire workflow.
 
 ```text
-Use $think-it-through to draft a product task from this Slack thread: <link>.
-Only write the draft; flag any important unresolved decisions.
+/think-it-through Draft a product task from this thread: <link>
 
-Use $align-and-improve to wrap up this work. Help me choose which specs and docs
-to update, then propose useful improvements from the session.
+/align-and-improve
 ```
 
 ## Make It Happen: deliberately delegate
 
-For a nontechnical teammate, a familiar task, or a day when you want to delegate,
-invoke `make-it-happen` explicitly. It coordinates the companion skills and the
-repository's implementation conventions for the phases you request, up to the
-whole route from spec through PR delivery and documentation alignment.
+For a nontechnical teammate, a familiar task, or a day when you want to
+delegate, invoke `make-it-happen` explicitly. It coordinates the companion
+skills and the repository's implementation conventions for the phases you
+request, up to the whole route from spec through PR delivery and documentation
+alignment. With a goal or card and no phase restriction, that full route is the
+default; review, fixes, cleanup, and delivery coordination are built in.
 
 It records the plan and meaningful decisions, implements and verifies the work,
 coordinates review and fixes, simplifies the result, prepares the requested
 delivery, then reconciles the task's known documentation when those phases are
-included. It proposes lessons
-without silently changing shared skills or steering instructions. You get an
-understandable result, useful evidence, and anything that still needs your decision.
+included. It proposes lessons without silently changing shared skills or
+steering instructions. You get an understandable result, useful evidence, and
+anything that still needs your decision.
 
 ```text
-Use $make-it-happen to implement <goal or card> in <repository>.
-Choose routine implementation details and open a PR when ready.
+/make-it-happen <goal or card>
 
-Use $make-it-happen to implement the plan we just agreed.
-Stop after implementation and verification; I'll review before we prepare PRs.
+/make-it-happen Implement the agreed plan; stop before review.
 ```
 
 This mode is explicit-only. It does not activate because you gave a short prompt
@@ -152,48 +150,66 @@ decision outside the delegated scope. You can take the wheel back at any time.
 
 ## Common uses
 
-These examples assume the agent knows the target repository and can read linked
-sources. A card can be the only task input: the agent handles routine technical
-choices and asks when product intent or necessary access is missing.
+These examples assume the agent knows the repository and can read linked
+sources. Give the outcome or boundary; the skills supply their workflow.
 
 ### From a card to a PR
 
 ```text
-Use $make-it-happen for this Notion card: <link>.
-Take it through implementation, review, fixes, cleanup, and PR delivery in this
-repository. Open a PR, then align the relevant documentation with the result.
+/make-it-happen <Notion card link>
 ```
+
+The agent handles the spec, plan, implementation, review, fixes, cleanup, PRs,
+and relevant documentation. It asks when product intent or necessary access is
+missing.
 
 ### Think first, delegate implementation later
 
 ```text
-Use $think-it-through to discuss this idea: <draft or link>.
-Help me agree the spec and plan; don't start implementation yet.
+/think-it-through <draft or link>
 ```
 
 Once you're satisfied with the plan:
 
 ```text
-Use $make-it-happen to implement the plan we agreed.
-Stop after implementation and verification; I'll review before we prepare PRs.
+/make-it-happen Implement the agreed plan; stop before review.
 ```
 
 ### Clean up work you've already built
 
 ```text
-Use $simplify-and-cleanup on these existing changes.
-Preserve the intended behavior, remove unnecessary complexity, and split the work
-into coherent branches and commits where useful. Don't open PRs yet.
+/simplify-and-cleanup Split these changes into branches and commits where useful.
 ```
+
+Cleanup preserves intended behavior. The extra sentence authorizes a useful
+split; cleanup alone only recommends branch and commit boundaries.
 
 ### Review and deliver existing changes
 
 ```text
-Use $make-it-happen to review and deliver these existing changes.
-Start from the implementation: run CTO review, resolve supported findings,
-simplify, arrange useful branch and commit boundaries, and open the PRs.
-Then align the relevant documentation with the result.
+/make-it-happen Review and deliver these changes.
 ```
+
+The agent starts from the existing implementation and handles the remaining
+workflow automatically.
+
+### Stay in the driver's seat from start to finish
+
+Send these as separate messages, moving on when you're satisfied:
+
+| Step              | What to say                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------ |
+| Discuss and plan  | `/think-it-through <card or idea>`                                                   |
+| Build one slice   | `Implement the first slice, explain the important choices, then wait for my review.` |
+| Review            | `/cto-code-review`                                                                   |
+| Choose fixes      | `Accept F1; defer F2. Fix here.`                                                     |
+| Clean up          | `/simplify-and-cleanup`                                                              |
+| Open the PR       | `/write-pr Open the PR.`                                                             |
+| Align and improve | `/align-and-improve`                                                                 |
+
+Choose findings from the actual review and repeat implementation and review for
+later slices as needed. You choose when to continue, what to fix, and which docs
+to update. You can also review changes yourself.
 
 ## The workflow
 
@@ -232,13 +248,26 @@ flowchart TD
 ## The skills
 
 | Skill                                                        | Reach for it when                                                                                      |
-|--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
 | [think-it-through](skills/think-it-through/SKILL.md)         | You want to think through a change and write the right spec for its audience.                          |
 | [cto-code-review](skills/cto-code-review/SKILL.md)           | You want evidence-based scrutiny of correctness, security, performance, and structural simplicity.     |
 | [simplify-and-cleanup](skills/simplify-and-cleanup/SKILL.md) | You want less complexity and boilerplate, plus a useful check of delivery boundaries.                  |
 | [write-pr](skills/write-pr/SKILL.md)                         | You want the outcome and essential reviewer context, with implementation bookkeeping left in the diff. |
 | [make-it-happen](skills/make-it-happen/SKILL.md)             | You explicitly delegate selected phases or the whole workflow.                                         |
 | [align-and-improve](skills/align-and-improve/SKILL.md)       | You want to reconcile specs and docs, then choose useful improvements from what happened.              |
+
+## Editing this collection
+
+Use Node.js 22.22.2+ from the 22.x release line, or another version supported by
+[package.json](package.json). Run `npm install` once to enable the commit hook.
+Commits automatically format and lint staged Markdown. CI checks all published
+Markdown on pushes and PRs. Ignored private skills and working notes are
+excluded.
+
+```sh
+npm run format  # Format Markdown now
+npm run check   # Check formatting and Markdown rules
+```
 
 ## Author & Inspiration
 

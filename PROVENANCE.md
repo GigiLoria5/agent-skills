@@ -1,10 +1,11 @@
 # Provenance
 
 Maintained by Gigi Loria. These links credit ideas and workflows that influenced
-the collection; they do not imply that the upstream authors maintain these skills.
+the collection; they do not imply that the upstream authors maintain these
+skills.
 
 | Skill                | Maintained here        | Inspiration                                                                                                                                                                                                                                                                                                                            |
-|----------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | cto-code-review      | review workflow        | [Thermo-Nuclear Code Quality Review](https://github.com/cursor/plugins/blob/main/cursor-team-kit/skills/thermo-nuclear-code-quality-review/SKILL.md) informed its demanding structural-simplification lens; this skill adds its own evidence checks and user-selected resolution workflow.                                             |
 | simplify-and-cleanup | cleanup workflow       | Behavior-preserving simplification, concise code, and deliberate delivery boundaries from the author's working practices.                                                                                                                                                                                                              |
 | write-pr             | PR-writing preferences | The author's edited PR descriptions: outcomes, decisions, and useful reviewer context.                                                                                                                                                                                                                                                 |
@@ -14,9 +15,9 @@ the collection; they do not imply that the upstream authors maintain these skill
 
 ## General inspiration
 
-- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills): deliberate
-  problem definition and engineering workflows.
+- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills):
+  deliberate problem definition and engineering workflows.
 - [mattpocock/skills](https://github.com/mattpocock/skills): conversations that
   clarify intent and retrospectives that improve the next run.
-- [obra/superpowers](https://github.com/obra/superpowers): incremental development,
-  behavior-focused tests, and review as part of the workflow.
+- [obra/superpowers](https://github.com/obra/superpowers): incremental
+  development, behavior-focused tests, and review as part of the workflow.

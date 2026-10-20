@@ -1,0 +1,34 @@
+{
+  "name": "gigiloria5-agent-skills",
+  "private": true,
+  "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "format": "prettier --write \"**/*.md\" --ignore-path .gitignore",
+    "format:check": "prettier --check \"**/*.md\" --ignore-path .gitignore",
+    "lint": "markdownlint --ignore-path .gitignore \"**/*.md\"",
+    "check": "npm run format:check && npm run lint"
+  },
+  "lint-staged": {
+    "*.md": [
+      "prettier --write --ignore-path .gitignore",
+      "markdownlint --fix --ignore-path .gitignore"
+    ]
+  },
+  "devDependencies": {
+    "husky": "9.1.7",
+    "lint-staged": "17.6.0",
+    "prettier": "3.9.10",
+    "markdownlint-cli": "0.49.1"
+  },
+  "overrides": {
+    "markdownlint-cli": {
+      "js-yaml": "^5.4.1",
+      "markdown-it": "^14.3.2",
+      "smol-toml": "^1.9.1"
+    },
+    "katex": "^0.18.2"
+  }
+}
