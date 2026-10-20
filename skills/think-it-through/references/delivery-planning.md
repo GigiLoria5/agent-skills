@@ -10,29 +10,50 @@ its reason so the user can understand the plan afterward. Preserve decision
 ownership in an implementation handoff: record what the user has delegated and
 which unresolved choices still belong to them.
 
-Describe independently verifiable slices, their dependencies, and the check or
-demonstration that establishes each slice is done. Keep the plan concrete enough
-to guide implementation without recreating the patch in prose. Include a useful
-point to explain or demonstrate a slice when the user wants to understand and
-iterate on the result.
+Describe verifiable slices, their dependencies, and the check or demonstration
+that establishes each slice is done in its intended parent or integrated
+context. A slice need not work without its prerequisites. Keep the plan concrete
+enough to guide implementation without recreating the patch in prose. Include a
+useful point to explain or demonstrate a slice when the user wants to understand
+and iterate on the result.
 
 ## Branch boundaries
 
-Decide the intended review boundaries during planning. A single coherent change
-can remain one branch and PR. Consider a split when a prerequisite refactor,
-independently useful capability, or separate rollout deserves its own review.
-Avoid splitting solely by file count, backend/frontend folders, or an arbitrary
-PR-size target.
+Choose coherent review units with explicit dependencies. Compare one PR with
+clear commits, a small ordered stack, and independent PRs where applicable.
+Prefer the shape that makes the decisions easier to review without adding
+unnecessary coordination. A dependent part can deserve separate review even when
+it is not useful on its own. Dependency alone neither requires one PR nor
+justifies a stack; file count, backend/frontend folders, and arbitrary size
+targets are not sufficient reasons either.
 
-For a proposed split, record what belongs in each branch or PR, its dependency
-or parent, and the behavior that must work at that boundary. State whether the
-branches can land independently or require an ordered stack. Coordinate schema,
-API, and consumer changes so an intermediate deployed state is supported; a
-technically ordered stack does not by itself guarantee safe deployment.
+Separate three boundaries: review scope, merge order, and deployment. Inspect
+the repository's actual release process before deciding which intermediate
+states can reach users. Do not assume every PR deploys independently or that a
+stack merges or deploys atomically. For each proposed PR, record its scope,
+parent, and verification on top of its prerequisites; check compatibility at
+each merge or deployment state the process can produce.
+
+Before rejecting a stack as unsafe, identify a concrete intermediate state and
+the behavior or contract it breaks. Evaluate cumulative code including preceding
+PRs, not a dependent branch transplanted onto main without its prerequisites.
+For example, an additive compatible schema change, an API using it, and a UI
+using that API can form an ordered stack. The dependency chain alone does not
+make those intermediate states broken. Verify that the actual changes are
+additive and compatible rather than assuming they are.
+
+If the changes genuinely require one merge or deployment and the repository
+cannot enforce that boundary for a stack, keep one PR with coherent commits. Do
+not invent compatibility layers, flags, or release mechanisms merely to force a
+split. When release behavior is unknown, state that uncertainty rather than
+asserting that a split would ship broken code.
 
 Name actual branches when the user or repository has supplied the convention;
 otherwise describe the boundaries without pretending branches already exist.
-Revisit the plan if implementation reveals a materially different dependency.
+Preserve an agreed split unless new evidence warrants changing it. Explain the
+specific evidence and resulting change, rather than redesigning delivery because
+the invocation was shorter. Keep the rationale brief in the working plan or
+handoff; it is not a mandatory extra section in the PR description.
 
 When the agreed boundaries form an ordered PR stack, consider `gh-stack` if it
 is available and fits the repository's delivery flow. Read its installed

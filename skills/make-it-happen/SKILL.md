@@ -63,6 +63,15 @@ when it did not. Repository-specific implementation guidance takes precedence;
 read only the companions needed for the selected phases. The phases below
 describe the available route, not a required sequence for every invocation.
 
+Before choosing or revising branch/PR boundaries, read `think-it-through`'s
+`references/delivery-planning.md` when available. Apply this assessment during
+cleanup even when starting from existing changes: the user need not explicitly
+request a split check or name companion skills. Without that reference, compare
+one PR with coherent commits, an ordered stack, and independent PRs based on
+review clarity and the actual release process. Dependencies alone do not prove
+that an intermediate state is broken; substantiate that claim in cumulative
+code. Preserve agreed boundaries unless new evidence warrants changing them.
+
 Before writing code or tests, read
 [implementation quality](references/implementation-quality.md). Apply that
 baseline while building, alongside the repository's more-specific guidance.
@@ -77,9 +86,9 @@ standards as driver mode.
    planning work without the driver mode's phase questions. Stop at the
    requested boundary. Save to the supplied destination when the request
    includes updating it; otherwise keep a usable draft.
-2. **Plan:** Inspect repository guidance and existing code. Define independently
-   verifiable slices, their branch/PR boundaries, dependencies, and a suitable
-   validation approach. A coherent change can stay on one branch. Default to
+2. **Plan:** Inspect repository guidance and existing code. Define verifiable
+   slices in their intended parent or integrated context, their branch/PR
+   boundaries, dependencies, and a suitable validation approach. Default to
    Conventional Commits unless the repository requires another format. Record
    why a material approach was selected and update the plan when new evidence
    changes a dependency. Follow `think-it-through`'s plan-destination guidance:
@@ -98,9 +107,10 @@ standards as driver mode.
    delegation, present the finding for the user's decision. Use available
    subagents when useful and permitted; otherwise review sequentially.
 5. **Cleanup — `simplify-and-cleanup`:** Simplify without changing agreed
-   behavior. Revisit delivery boundaries if the actual diff has diverged from
-   the plan. Make an authorized split only when it improves this delivery, and
-   verify relevant behavior after edits or branch changes.
+   behavior. Assess delivery boundaries against the actual diff and existing
+   plan using the guidance above, even if no plan was supplied. Make an
+   authorized split only when it improves this delivery, and verify relevant
+   behavior after edits or branch changes.
 6. **Delivery — `write-pr`:** Prepare concise PR wording around the outcome and
    essential reviewer context. Finish requested commits, pushes, and PR
    creation. Check the actual base of each branch in a stack, and put only that

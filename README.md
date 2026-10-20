@@ -109,7 +109,7 @@ Slack thread into a product task, rewrite a technical spec, or plan an already
 agreed change. It does not restart the full workflow for each of those requests.
 
 ```text
-/think-it-through <card or idea>
+/think-it-through Help me clarify this idea: <card or notes>.
 ```
 
 A short brief is not permission to invent your product decisions. You can
@@ -139,7 +139,7 @@ steering instructions. You get an understandable result, useful evidence, and
 anything that still needs your decision.
 
 ```text
-/make-it-happen <goal or card>
+/make-it-happen Take this task through to a PR: <goal or card>.
 
 /make-it-happen Implement the agreed plan; stop before review.
 ```
@@ -151,12 +151,14 @@ decision outside the delegated scope. You can take the wheel back at any time.
 ## Common uses
 
 These examples assume the agent knows the repository and can read linked
-sources. Give the outcome or boundary; the skills supply their workflow.
+sources. Give a starting point and desired outcome or stopping boundary; the
+skills supply the internal workflow. You do not need to list review tools or
+repeat the delivery procedure.
 
 ### From a card to a PR
 
 ```text
-/make-it-happen <Notion card link>
+/make-it-happen Implement this task and open a PR: <Notion card link>.
 ```
 
 The agent handles the spec, plan, implementation, review, fixes, cleanup, PRs,
@@ -166,7 +168,7 @@ missing.
 ### Think first, delegate implementation later
 
 ```text
-/think-it-through <draft or link>
+/think-it-through Help me agree the spec and plan for this: <draft or link>.
 ```
 
 Once you're satisfied with the plan:
@@ -178,16 +180,16 @@ Once you're satisfied with the plan:
 ### Clean up work you've already built
 
 ```text
-/simplify-and-cleanup Split these changes into branches and commits where useful.
+/simplify-and-cleanup Clean up these changes and split branches or commits where useful.
 ```
 
-Cleanup preserves intended behavior. The extra sentence authorizes a useful
-split; cleanup alone only recommends branch and commit boundaries.
+Cleanup preserves intended behavior. Requesting a useful split authorizes it;
+cleanup alone only recommends branch and commit boundaries.
 
 ### Review and deliver existing changes
 
 ```text
-/make-it-happen Review and deliver these changes.
+/make-it-happen Review the existing changes, prepare them for delivery, and open the PRs.
 ```
 
 The agent starts from the existing implementation and handles the remaining
@@ -199,7 +201,7 @@ Send these as separate messages, moving on when you're satisfied:
 
 | Step              | What to say                                                                          |
 | ----------------- | ------------------------------------------------------------------------------------ |
-| Discuss and plan  | `/think-it-through <card or idea>`                                                   |
+| Discuss and plan  | `/think-it-through Help me agree the spec and plan: <card or idea>.`                 |
 | Build one slice   | `Implement the first slice, explain the important choices, then wait for my review.` |
 | Review            | `/cto-code-review`                                                                   |
 | Choose fixes      | `Accept F1; defer F2. Fix here.`                                                     |

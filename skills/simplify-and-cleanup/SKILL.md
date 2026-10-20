@@ -128,10 +128,13 @@ implementation.
 ## Review delivery boundaries
 
 For a feature, branch, or PR cleanup, compare the resulting diff with any agreed
-delivery plan. Recommend splitting branches or PRs when the diff contains
-independently useful changes, a prerequisite refactor, or distinct rollout risks
-that would be easier to review separately. Keep one coherent change together;
-file count or separate backend/frontend folders alone do not justify a split.
+delivery plan. Before choosing or revising boundaries, read `think-it-through`'s
+`references/delivery-planning.md` when available, including for work that starts
+from an existing implementation. Recommend coherent review units with explicit
+dependencies; a part can deserve separate review without being independently
+useful. Compare one PR with clear commits, an ordered stack, and independent PRs
+where applicable. Preserve an agreed split unless new evidence warrants a
+change. File count or backend/frontend folders alone do not justify a split.
 
 Also inspect the task's commit boundaries when history is available. Check for
 commits mixing independent outcomes or burying a meaningful prerequisite inside
@@ -143,7 +146,12 @@ within the current task, not an audit of unrelated history.
 
 When recommending a split, identify what belongs in each part, its parent or
 dependency, and whether the parts can land independently or as an ordered stack.
-Keep schema, API, and consumer compatibility intact at each landing point.
+Distinguish review scope, merge order, and deployment using the repository's
+actual release process. Check cumulative code including prior PRs at reachable
+merge and deployment boundaries. Before claiming a split is unsafe, identify the
+specific failing state or contract; dependencies alone are not breakage. If the
+work truly needs one atomic boundary that the process cannot enforce for a
+stack, keep one PR with coherent commits rather than adding machinery to split.
 Suggest coherent commit boundaries and Conventional Commit messages unless the
 repository requires another format: `<type>[optional scope]: <description>`.
 Enclose a supplied scope in parentheses, for example
